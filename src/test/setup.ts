@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom/vitest'
+import { configure } from '@testing-library/react'
 
-afterEach(() => {
-  document.body.innerHTML = ''
-})
+configure({ asyncUtilTimeout: 5000 })

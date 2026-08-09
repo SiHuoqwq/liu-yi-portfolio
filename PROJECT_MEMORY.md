@@ -10,8 +10,8 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 2 已完成；固定深色令牌、基础 UI、Reduced Motion、Header、Mobile Menu、Footer 与 404 已实现。
-- 网站实现：全局框架和可访问交互基线已完成，下一步进入首页真实内容与响应式结构。
+- 当前阶段：Phase 3 已完成；首页静态内容、Evidence Trace、两种项目档案布局、工程原则、能力与 About / Contact 已实现。
+- 网站实现：首页已按批准规格完成响应式静态结构；项目截图仍使用明确的真实资产缺失占位。
 - Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
 
 ## 已确认决策
@@ -42,13 +42,14 @@
 
 ## 待办与下一步
 
-- 下一阶段为 Phase 3：实现首页 Hero / Evidence Trace、两个不同结构的 Featured Project、Engineering Principles、Capabilities 与 About / Contact。
+- 下一阶段为 Phase 4：实现析数与 KnowledgeFlow 两个完整 Case Study 的静态阅读结构与语义状态真实性边界。
 - Phase 5 只检查和接入项目目录内由用户提供的真实简历、截图、头像和分享图；目前尚未核验这些资产。
 
 ## 最近验证
 
 - 2026-08-09 Phase 1：`npm run typecheck`、`npm run lint`、`npm run test -- --run`、`npm run build` 均为 exit 0；Vitest 1/1 通过，Vite production build 成功。
 - 2026-08-09 Phase 2：同一组门禁均为 exit 0；Vitest 8/8 通过，Vite production build 成功。
+- 2026-08-09 Phase 3：typecheck、lint、Vitest 11/11、build 均通过；系统 Chrome 视觉检查 1440×900、1024×768、768×1024、390×844 共 4/4 通过且无横向溢出。
 
 ## 变更记录
 
@@ -59,3 +60,4 @@
 - 2026-08-09：已创建 Phase 0 基线提交 `a70f085`，并从该提交建立 `D:\Codex\Projects\portfolio-implementation` / `codex/portfolio-implementation`，准备进入 Phase 1。
 - 2026-08-09：Phase 1 采用手工非破坏式初始化完成；未覆盖 Phase 0 文件，四路由壳完成，基础 typecheck/lint/unit/build 门禁通过。
 - 2026-08-09：Phase 2 完成固定深色设计令牌、UI 语义、Reduced Motion 安全降级、移动菜单焦点管理与 404 返回路径。
+- 2026-08-09：Phase 3 完成首页；析数与 KnowledgeFlow 使用不同布局族，缺失截图以准确路径占位，未伪造项目界面。
