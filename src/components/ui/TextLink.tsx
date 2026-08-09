@@ -4,7 +4,7 @@ import type { AnchorHTMLAttributes, ReactNode } from 'react'
 type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & { children: ReactNode }
 
 export function TextLink({ children, href = '', ...props }: TextLinkProps) {
-  const isExternal = /^https?:\/\//.test(href) || href.startsWith('mailto:')
+  const isExternal = /^https?:\/\//.test(href)
   return (
     <a
       className="text-link"
