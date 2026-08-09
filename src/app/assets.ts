@@ -18,7 +18,7 @@ export const assetManifest = {
   knowledgeflowStreaming: { path: '/images/knowledgeflow/streaming-chat.webp', available: false, requiredForRelease: true },
   knowledgeflowSource: { path: '/images/knowledgeflow/source-snapshot.webp', available: false, requiredForRelease: true },
   knowledgeflowRestore: { path: '/images/knowledgeflow/session-restore.webp', available: false, requiredForRelease: true },
-  favicon: { path: '/favicon.svg', available: false, requiredForRelease: true },
+  favicon: { path: '/favicon.svg', available: true, requiredForRelease: true },
   shareImage: { path: '/images/share/portfolio.webp', available: false, requiredForRelease: true },
 } as const satisfies Record<string, AssetRecord>
 

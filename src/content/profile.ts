@@ -4,7 +4,7 @@ export const profile = {
   role: 'AI 应用开发工程师 / AI Agent 开发工程师',
   email: '3534543791@qq.com',
   github: 'https://github.com/SiHuoqwq',
-  education: '华东交通大学 · 信息与计算科学本科 · 2022.09–2026.06',
+  education: '华东交通大学 / 信息与计算科学本科 / 2022.09-2026.06',
 } as const
 
 export const siteLinks = [

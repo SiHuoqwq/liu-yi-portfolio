@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useReducedMotionPreference } from '../ui/useReducedMotionPreference'
 
-const desktopMotionQuery = '(min-width: 1024px) and (prefers-reduced-motion: no-preference)'
+const desktopMotionQuery = '(min-width: 1024px) and (min-height: 1050px) and (prefers-reduced-motion: no-preference)'
 
 export function useDesktopMotion() {
   const reduced = useReducedMotionPreference()
