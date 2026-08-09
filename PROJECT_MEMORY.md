@@ -10,9 +10,9 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 0 已完成并获用户批准；正式设计规格和修正后的实施计划已落盘。
-- 网站实现：尚未开始；仓库中没有 `package.json` 或旧网站代码，只有规则、记忆和 Phase 0 文档。
-- Git：已初始化，当前分支 `master`，尚无提交；`AGENTS.md`、`PROJECT_MEMORY.md` 和 `docs/` 均为未跟踪文件。
+- 当前阶段：Phase 1 已完成；React + TypeScript + Vite 应用骨架、四路由壳和测试工具已建立。
+- 网站实现：已完成非破坏式基础初始化，尚未进入正式视觉页面与内容实现。
+- Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
 
 ## 已确认决策
 
@@ -26,7 +26,8 @@
 - 固定路由为 `/`、`/projects/xishu`、`/projects/knowledgeflow`，并计划提供自定义 404；不增加 Blog、Services、独立 Skills 或独立 Contact。
 - 技术基线为 React、TypeScript、Vite、React Router、Tailwind CSS、Framer Motion、Lucide React、Vitest、React Testing Library、Playwright 和 npm。
 - 用户已批准正式设计规格与实施计划，并授权完成基线提交后在 `codex/portfolio-implementation` 隔离分支连续执行 Phase 1–9。
-- Phase 0 基线提交消息固定为 `docs: establish portfolio implementation baseline`；实际 SHA 在提交创建后记录。
+- Phase 0 基线提交为 `a70f085af66505b16ea7bd3201d0ca0bcf7b5886`（`docs: establish portfolio implementation baseline`）。
+- 隔离开发 worktree 为 `D:\Codex\Projects\portfolio-implementation`，分支为 `codex/portfolio-implementation`。
 - Phase 1 必须非破坏式初始化，保留 `AGENTS.md`、`PROJECT_MEMORY.md` 与 `docs/`；create-vite 不安全时手动创建 Vite + React + TypeScript 骨架。
 - 真实性测试检查语义状态而非禁止关键词本身；未完成功能只能位于 `CURRENT LIMITATIONS`、`NEXT / PLANNED` 或明确否定说明，不得归入 Implemented、Supported、Verified、Core Capability 或 Released Feature。
 - 不调用 imagegen，不伪造项目截图；真实资产缺失时使用明确的 `AssetPlaceholder`，并列为发布门禁问题。
@@ -41,9 +42,12 @@
 
 ## 待办与下一步
 
-- 仅将 `AGENTS.md`、`PROJECT_MEMORY.md`、`docs/specs/portfolio-design-spec.md`、`docs/plans/portfolio-implementation-plan.md` 纳入首个本地基线提交。
-- 从基线提交创建 `codex/portfolio-implementation` 隔离 worktree，然后开始 Phase 1：非破坏式初始化 React + TypeScript + Vite、配置 Tailwind / Router / ESLint / Vitest / Playwright，并验证空白应用 build。
+- 下一阶段为 Phase 2：实现固定深色设计令牌、UI 基础组件、Reduced Motion、Header、Mobile Menu、Footer 与 404。
 - Phase 5 只检查和接入项目目录内由用户提供的真实简历、截图、头像和分享图；目前尚未核验这些资产。
+
+## 最近验证
+
+- 2026-08-09 Phase 1：`npm run typecheck`、`npm run lint`、`npm run test -- --run`、`npm run build` 均为 exit 0；Vitest 1/1 通过，Vite production build 成功。
 
 ## 变更记录
 
@@ -51,3 +55,5 @@
 - 2026-08-06：完成 Phase 0；确认 Evidence Trace 设计基线，保存正式设计规格与分阶段 TDD 实施计划，未编写页面代码。
 - 2026-08-09：用户再次提供并确认正式设计规格；只读复查确认目录仍无旧网站或 `package.json`，实施计划批准与 worktree 许可仍待确认。
 - 2026-08-09：用户批准修正后的实施计划与 Phase 1–9；要求先建立仅含四个 Phase 0 文件的本地基线提交，再创建 `codex/portfolio-implementation` 隔离 worktree。
+- 2026-08-09：已创建 Phase 0 基线提交 `a70f085`，并从该提交建立 `D:\Codex\Projects\portfolio-implementation` / `codex/portfolio-implementation`，准备进入 Phase 1。
+- 2026-08-09：Phase 1 采用手工非破坏式初始化完成；未覆盖 Phase 0 文件，四路由壳完成，基础 typecheck/lint/unit/build 门禁通过。
