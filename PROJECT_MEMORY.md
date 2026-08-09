@@ -10,7 +10,7 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 8 已完成；实现、SEO、浏览器验收、可访问性、真实性和最终视觉审查均完成，Phase 9 仅剩 Lighthouse 授权与最终文档收口。
+- 当前阶段：Phase 9 已完成；实现、SEO、浏览器验收、Lighthouse、可访问性、真实性和最终视觉审查均已完成。
 - 网站实现：首页与两条 Case Study 均已完成响应式结构与分级动效；项目截图仍使用明确的真实资产缺失占位。
 - Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
 
@@ -42,9 +42,8 @@
 
 ## 待办与下一步
 
-- 下一阶段为 Phase 9：如用户批准新增 Lighthouse 依赖，则运行桌面与移动生产构建审计，记录原始结果并完成最终文档提交。
-- Phase 5 已仅在项目目录内核验真实资产；当前没有简历、项目截图、头像或分享图，未访问项目目录外的用户文件。
-- 当前环境没有 Lighthouse 命令或项目依赖；未擅自安装，真实 Lighthouse 结果待用户授权后补充。
+- 后续发布前需由用户提供真实简历、析数与 KnowledgeFlow 项目截图和分享图；头像仍为可选资产。未访问项目目录外的用户文件。
+- Lighthouse 已按用户授权以 `13.4.1` 本地 devDependency 安装并完成 3 个 URL 的 Desktop / Mobile 各 3 次 production preview 审计；原始结果与中位数位于 `docs/verification/portfolio.md`。
 
 ## 最近验证
 
@@ -55,6 +54,8 @@
 - 2026-08-09 Phase 5：typecheck、lint、Vitest 18/18、build 均通过；项目目录内 `public/` 不存在，简历、项目截图与分享图均记录为发布阻塞，头像为可选缺失资产。
 - 2026-08-09 Phase 6：typecheck、lint、Vitest 19/19、build 均通过；系统 Chrome 验证桌面 sticky、移动静态和 Reduced Motion 静态降级 3/3 通过。
 - 2026-08-09 Phase 7-8：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、build 均通过；覆盖 6 个首页视口、两条 Case Study 的桌面与移动视口、SEO、外链、菜单焦点、Reduced Motion、标题树和 404。
+- 2026-08-09 Phase 9：Node v22.20.0、Lighthouse 13.4.1、Chrome 151.0.7922.76；最终 18 次 Lighthouse 的 Accessibility、Best Practices、SEO 均为 100。六个场景的 LCP 中位数均低于 2.5s，CLS 中位数均为 0；TBT 仅作为 lab responsiveness proxy，未声明验证 INP。
+- 2026-08-09 Phase 9 最终门禁：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、production build 均通过；`npm audit` 为 0 vulnerabilities。
 
 ## 变更记录
 
@@ -71,3 +72,5 @@
 - 2026-08-09：Phase 6 完成响应式动效；滚动联动项目栈采用响应式启用条件，内容在所有动效状态下保持可见。
 - 2026-08-09：Phase 7 完成逐路由 SEO、可配置 canonical、robots、favicon 与核心浏览器验收；无真实分享图时不输出 `og:image`。
 - 2026-08-09：Phase 8 完成 design-taste-frontend、可访问性与内容真实性审查；Sticky Stack 仅在宽度至少 1024px、高度至少 1050px且未请求 Reduced Motion 时启用，防止较矮视口中的 CTA 被固定到视口之外。
+- 2026-08-09：用户授权仅在隔离 worktree 安装 Lighthouse devDependency。首轮 Lighthouse 暴露 muted 文本对比度和 accessible name 问题；通过单一颜色令牌与两个 aria-label 的最小修复后，最终 Lighthouse Accessibility 全部达到 100，未做性能代码修改。
+- 2026-08-09：Phase 9 完成；未 push、未创建远程、Tag 或 Release，开发分支与 worktree 保持隔离。

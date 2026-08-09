@@ -35,7 +35,7 @@ test('keeps GitHub external and reports the missing resume without a broken link
 test('mobile menu traps the interaction and restores focus after Escape', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
-  const trigger = page.getByRole('button', { name: '打开菜单' })
+  const trigger = page.getByRole('button', { name: /打开菜单/ })
   await trigger.click()
 
   const dialog = page.getByRole('dialog', { name: '移动导航' })

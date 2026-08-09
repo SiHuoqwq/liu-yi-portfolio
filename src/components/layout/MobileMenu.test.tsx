@@ -11,7 +11,7 @@ it('closes on Escape and restores focus to the menu trigger', async () => {
     </MemoryRouter>,
   )
 
-  const trigger = screen.getByRole('button', { name: '打开菜单' })
+  const trigger = screen.getByRole('button', { name: /打开菜单/ })
   await user.click(trigger)
   expect(screen.getByRole('dialog', { name: '移动导航' })).toBeVisible()
 
