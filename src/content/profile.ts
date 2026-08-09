@@ -14,5 +14,6 @@ export const siteLinks = [
   { label: '关于', href: '/#about' },
 ] as const
 
-export const resumeAssetPath = '/resume/liu-yi-ai-application-resume.pdf'
-export const resumeAvailable = false
+export const resumeAssetPath = assetManifest.resume.path
+export const resumeAvailable = getAssetAvailability(resumeAssetPath)
+import { assetManifest, getAssetAvailability } from '../app/assets'

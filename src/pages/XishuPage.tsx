@@ -10,7 +10,7 @@ import { VerificationRecord } from '../components/case-study/VerificationRecord'
 import { ArtifactShowcase } from '../components/xishu/ArtifactShowcase'
 import { RunRecoveryDiagram } from '../components/xishu/RunRecoveryDiagram'
 import { XishuArchitectureComparison } from '../components/xishu/XishuArchitectureComparison'
-import { AssetPlaceholder } from '../components/ui/AssetPlaceholder'
+import { ScreenshotGallery } from '../components/case-study/ScreenshotGallery'
 
 export function XishuPage() {
   return (
@@ -23,7 +23,7 @@ export function XishuPage() {
       <CaseSection index="05 / 11" title="可信分析 Trace"><ProcessTrace steps={["Intent / constrained", "Compiler / schema checked", "Compute / deterministic", "Registry / run scoped", "Validation / referenced", "Artifact / delivered"]} /></CaseSection>
       <CaseSection index="06 / 11" title="Artifact 不是聊天气泡"><p>分析结果按用途形成四类结构化 Artifact；每个 Artifact 保留来源和当前 Run 关联。</p><ArtifactShowcase /></CaseSection>
       <CaseSection index="07 / 11" title="Run 生命周期与恢复"><RunRecoveryDiagram /><h3>合作式取消</h3><p>取消信号在安全边界生效；同步计算无法保证立即中断。无分布式队列和多节点执行。</p></CaseSection>
-      <CaseSection index="08 / 11" title="界面与证据阅读"><div className="case-gallery-static"><AssetPlaceholder path="/images/xishu/dataset-profile.webp" /><AssetPlaceholder path="/images/xishu/run-progress.webp" /><AssetPlaceholder path="/images/xishu/artifact-overview.webp" /><AssetPlaceholder path="/images/xishu/chart-result.webp" /></div></CaseSection>
+      <CaseSection index="08 / 11" title="界面与证据阅读"><ScreenshotGallery items={[{ path: '/images/xishu/dataset-profile.webp', alt: '析数字段画像界面', width: 1440, height: 900 }, { path: '/images/xishu/run-progress.webp', alt: '析数运行进度界面', width: 1440, height: 900 }, { path: '/images/xishu/artifact-overview.webp', alt: '析数 Artifact 总览', width: 1440, height: 900 }, { path: '/images/xishu/chart-result.webp', alt: '析数图表结果', width: 1440, height: 900 }]} /></CaseSection>
       <CaseSection index="09 / 11" title="测试与发布证据" ariaLabel="析数验证状态"><VerificationRecord items={[{ label: 'Backend Tests', value: '183 / 183 PASS', status: 'pass' }, { label: 'Frontend Tests', value: '59 / 59 PASS', status: 'pass' }, { label: 'TypeScript', value: 'PASS', status: 'pass' }, { label: 'ESLint', value: 'PASS / 0 WARNING', status: 'pass' }, { label: 'Build', value: 'PASS', status: 'pass' }, { label: 'Release', value: 'v2.0.0', status: 'pass' }]} /></CaseSection>
       <CaseSection index="10 / 11" title="技术取舍与限制" ariaLabel="析数当前限制"><LimitationList current={["OpenAI Provider 未实现", "Redis 未实现；当前不声明分布式执行", "P95 未测量；不展示虚构延迟", "云部署与 Live Demo 未完成", "合作式取消不保证同步计算立即中断"]} planned={["更严格的数据域扩展", "部署方案需在真实环境验证后再声明"]} /></CaseSection>
       <CaseSection index="11 / 11" title="下一条证据轨迹"><CaseStudyNavigation href="/projects/knowledgeflow" label="KnowledgeFlow AI · 本地模块化 RAG" /></CaseSection>

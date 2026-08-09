@@ -10,7 +10,7 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 4 已完成；析数与 KnowledgeFlow Case Study 的完整静态阅读结构和语义状态边界已实现。
+- 当前阶段：Phase 5 已完成；资产 manifest、ResponsiveImage、ProjectScreenshot 与键盘可操作 ScreenshotGallery 已实现。
 - 网站实现：首页与两条 Case Study 均已完成响应式静态结构；项目截图仍使用明确的真实资产缺失占位。
 - Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
 
@@ -42,7 +42,7 @@
 
 ## 待办与下一步
 
-- 下一阶段为 Phase 5：建立资产 manifest、响应式图片与可访问 Screenshot Gallery，只接入项目目录内真实存在的资产。
+- 下一阶段为 Phase 6：添加 Hero Trace、项目 Sticky Stack 和阅读 Reveal 的语义化动效，并验证 Reduced Motion 与移动降级。
 - Phase 5 只检查和接入项目目录内由用户提供的真实简历、截图、头像和分享图；目前尚未核验这些资产。
 
 ## 最近验证
@@ -51,6 +51,7 @@
 - 2026-08-09 Phase 2：同一组门禁均为 exit 0；Vitest 8/8 通过，Vite production build 成功。
 - 2026-08-09 Phase 3：typecheck、lint、Vitest 11/11、build 均通过；系统 Chrome 视觉检查 1440×900、1024×768、768×1024、390×844 共 4/4 通过且无横向溢出。
 - 2026-08-09 Phase 4：typecheck、lint、Vitest 15/15、build 均通过；首页与两条 Case Study 的系统 Chrome 多视口检查 8/8 通过且无横向溢出。
+- 2026-08-09 Phase 5：typecheck、lint、Vitest 18/18、build 均通过；项目目录内 `public/` 不存在，简历、项目截图与分享图均记录为发布阻塞，头像为可选缺失资产。
 
 ## 变更记录
 
@@ -63,3 +64,4 @@
 - 2026-08-09：Phase 2 完成固定深色设计令牌、UI 语义、Reduced Motion 安全降级、移动菜单焦点管理与 404 返回路径。
 - 2026-08-09：Phase 3 完成首页；析数与 KnowledgeFlow 使用不同布局族，缺失截图以准确路径占位，未伪造项目界面。
 - 2026-08-09：Phase 4 完成两条 Case Study；真实性测试按 Implemented / Supported / Verified / Current Limitations / Next Planned 语义区域检查，不做关键词全局禁用。
+- 2026-08-09：Phase 5 只读检查确认项目内尚无真实资产；未搜索仓库外文件，未生成图片，Screenshot Gallery 在缺图时保留准确文件名和阅读顺序。

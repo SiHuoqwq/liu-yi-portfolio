@@ -1,9 +1,9 @@
 import type { ProjectRecord } from '../../content/projects'
-import { AssetPlaceholder } from '../ui/AssetPlaceholder'
 import { StatusLabel } from '../ui/StatusLabel'
 import { ProjectIndex } from './ProjectIndex'
 import { ProjectLinks } from './ProjectLinks'
 import { ProjectMetrics } from './ProjectMetrics'
+import { ProjectScreenshot } from './ProjectScreenshot'
 
 export function FeaturedProjectPanel({ project }: { project: ProjectRecord }) {
   return (
@@ -14,7 +14,7 @@ export function FeaturedProjectPanel({ project }: { project: ProjectRecord }) {
       </div>
       {project.flow ? <div className="project-flow mono">{project.flow.map((step) => <span key={step}>{step}</span>)}</div> : null}
       <div className="featured-project__body">
-        <div className="featured-project__visual"><AssetPlaceholder path={project.imagePath} /></div>
+        <div className="featured-project__visual"><ProjectScreenshot path={project.imagePath} alt={`${project.name} 工作台首页`} priority={project.id === 'xishu'} /></div>
         <div className="featured-project__content">
           <div><p className="project-name mono">{project.name}</p><h3>{project.title}</h3><p>{project.summary}</p></div>
           <dl className="project-brief">
