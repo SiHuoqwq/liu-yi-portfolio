@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('uses the editorial sticky stack only on motion-capable desktop viewports', async ({ page }) => {
-  await page.setViewportSize({ width: 1280, height: 800 })
+  await page.setViewportSize({ width: 1440, height: 1200 })
   await page.goto('/')
 
   await expect(page.locator('.project-stack')).toHaveAttribute('data-stack-mode', 'sticky')
