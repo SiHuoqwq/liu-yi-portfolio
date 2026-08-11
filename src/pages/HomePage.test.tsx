@@ -5,11 +5,16 @@ it('presents the approved home narrative and truthful project evidence in order'
   renderApp(['/'])
 
   expect(await screen.findByRole('heading', { level: 1, name: /构建可验证、可恢复/ })).toBeVisible()
+  expect(screen.getByText('构建可验证、')).toBeVisible()
+  expect(screen.getByText('可恢复、')).toBeVisible()
+  expect(screen.getByText('可交付的 AI 应用。')).toBeVisible()
   const main = screen.getByRole('main')
   const sections = within(main).getAllByRole('region').map((section) => section.id)
   expect(sections).toEqual(['hero', 'projects', 'principles', 'capabilities', 'about'])
 
-  expect(screen.getByText('模型处理不确定性，程序保证确定性。')).toBeVisible()
+  expect(screen.getByRole('heading', { level: 2, name: '两个项目，一条共同原则。模型处理不确定性，程序保证确定性。' })).toBeVisible()
+  expect(screen.getByText('模型处理不确定性，')).toBeVisible()
+  expect(screen.getByText('程序保证确定性。')).toBeVisible()
   expect(screen.getByRole('link', { name: /查看析数 Case Study/ })).toHaveAttribute('href', '/projects/xishu')
   expect(screen.getByRole('link', { name: /查看.*KnowledgeFlow AI.*Case Study/ })).toHaveAttribute('href', '/projects/knowledgeflow')
   expect(screen.getByText('183 / 183 Backend Tests')).toBeVisible()

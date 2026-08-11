@@ -10,6 +10,15 @@ it('keeps Xishu release evidence and unfinished claims in their semantic states'
   expect(screen.getByText('合作式取消')).toBeVisible()
   expect(screen.getByText(/无分布式队列和多节点执行/)).toBeVisible()
   expect(screen.getAllByText('示意').length).toBeGreaterThan(0)
+  expect(screen.getByText('仅识别受控分析意图，不自由扩展未知分析路径。')).toBeVisible()
+  expect(screen.getByText('由 pandas 完成统计、聚合和趋势计算。')).toBeVisible()
+  expect(screen.getByText('实时流负责体验，持久化记录负责可靠性。')).toBeVisible()
+
+  const artifactTypes = screen.getByRole('group', { name: '析数 Artifact 类型' })
+  for (const type of ['TEXT', 'METRIC', 'TABLE', 'CHART']) {
+    expect(within(artifactTypes).getByText(type)).toBeVisible()
+  }
+  expect(within(artifactTypes).queryByText('EVIDENCE')).not.toBeInTheDocument()
 
   const implemented = screen.getByRole('region', { name: '析数已实现能力' })
   for (const unsupported of ['OpenAI Provider', 'Redis', 'P95', '云部署']) {

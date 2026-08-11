@@ -9,6 +9,14 @@ it('keeps KnowledgeFlow supported, verified and planned capabilities semanticall
   const supported = screen.getByRole('region', { name: 'KnowledgeFlow 已实现能力' })
   expect(within(supported).getByText(/PDF · TXT · Markdown/)).toBeVisible()
   expect(within(supported).getByText(/BAAI\/bge-small-zh-v1.5/)).toBeVisible()
+  for (const stage of ['FILE', 'LOAD', 'CLEAN', 'QUALITY CHECK', 'CHUNK', 'STABLE ID', 'BGE EMBEDDING', 'CHROMA']) {
+    expect(screen.getByText(stage)).toBeVisible()
+  }
+  for (const idPart of ['SOURCE', 'PAGE', 'CHUNK INDEX', 'START INDEX', 'CONTENT HASH', 'STABLE CHUNK ID']) {
+    expect(screen.getByText(idPart)).toBeVisible()
+  }
+  expect(screen.getByText('Character-based context budget')).toBeVisible()
+  expect(screen.getByText('Remove invalid citations')).toBeVisible()
   for (const unfinished of ['OCR', 'BM25', 'Reranker']) {
     expect(within(supported).queryByText(new RegExp(unfinished))).not.toBeInTheDocument()
   }

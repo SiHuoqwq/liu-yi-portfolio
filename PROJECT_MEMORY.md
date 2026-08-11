@@ -10,8 +10,8 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 9 已完成；实现、SEO、浏览器验收、Lighthouse、可访问性、真实性和最终视觉审查均已完成。
-- 网站实现：首页与两条 Case Study 均已完成响应式结构与分级动效；项目截图仍使用明确的真实资产缺失占位。
+- 当前阶段：Phase 1–9 工程验收已接受，Portfolio Visual Refinement Round 2 已完成；未进入合并或部署阶段。
+- 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和第二轮定向视觉优化；项目截图仍使用明确的真实资产缺失占位。
 - Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
 
 ## 已确认决策
@@ -44,6 +44,7 @@
 
 - 后续发布前需由用户提供真实简历、析数与 KnowledgeFlow 项目截图和分享图；头像仍为可选资产。未访问项目目录外的用户文件。
 - Lighthouse 已按用户授权以 `13.4.1` 本地 devDependency 安装并完成 3 个 URL 的 Desktop / Mobile 各 3 次 production preview 审计；原始结果与中位数位于 `docs/verification/portfolio.md`。
+- Visual Refinement Round 2 已修复 Hero 与 Selected Work 中文断行，并提高析数、KnowledgeFlow 中段的真实信息密度；下一步仅在用户提供真实资产后进入 Asset Integration，当前不得 merge、push 或部署。
 
 ## 最近验证
 
@@ -56,6 +57,7 @@
 - 2026-08-09 Phase 7-8：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、build 均通过；覆盖 6 个首页视口、两条 Case Study 的桌面与移动视口、SEO、外链、菜单焦点、Reduced Motion、标题树和 404。
 - 2026-08-09 Phase 9：Node v22.20.0、Lighthouse 13.4.1、Chrome 151.0.7922.76；最终 18 次 Lighthouse 的 Accessibility、Best Practices、SEO 均为 100。六个场景的 LCP 中位数均低于 2.5s，CLS 中位数均为 0；TBT 仅作为 lab responsiveness proxy，未声明验证 INP。
 - 2026-08-09 Phase 9 最终门禁：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、production build 均通过；`npm audit` 为 0 vulnerabilities。
+- 2026-08-11 Visual Refinement Round 2：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、production build 均通过；1440×900、1280×800、1024×768、768×1024、390×844、360×800 均无页面级横向滚动，截图位于 `docs/visual-review-round-2/`。
 
 ## 变更记录
 
@@ -74,3 +76,4 @@
 - 2026-08-09：Phase 8 完成 design-taste-frontend、可访问性与内容真实性审查；Sticky Stack 仅在宽度至少 1024px、高度至少 1050px且未请求 Reduced Motion 时启用，防止较矮视口中的 CTA 被固定到视口之外。
 - 2026-08-09：用户授权仅在隔离 worktree 安装 Lighthouse devDependency。首轮 Lighthouse 暴露 muted 文本对比度和 accessible name 问题；通过单一颜色令牌与两个 aria-label 的最小修复后，最终 Lighthouse Accessibility 全部达到 100，未做性能代码修改。
 - 2026-08-09：Phase 9 完成；未 push、未创建远程、Tag 或 Release，开发分支与 worktree 保持隔离。
+- 2026-08-11：完成 Visual Refinement Round 2；保留深色技术编辑方向、Engineering Principles、核心 Evidence Trace、导航、字体与颜色系统，仅定向修复标题层级并补足真实技术记录。析数 Artifact 明确为 Text / Metric / Table / Chart，KnowledgeFlow 未新增不真实能力；未使用 imagegen 或伪造素材。

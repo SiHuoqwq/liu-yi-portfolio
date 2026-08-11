@@ -20,7 +20,14 @@ export function XishuPage() {
       <CaseSection index="02 / 11" title="用户工作流"><ProcessTrace steps={["上传数据并生成字段画像", "使用自然语言提出分析意图", "编译为受限分析计划", "执行确定性计算", "校验证据并生成 Artifact", "保存 Run 并支持恢复"]} /></CaseSection>
       <CaseSection index="03 / 11" title="为什么不让 Agent 自由决定"><p>自由规划容易选择错误字段、混合不可比较指标，并把语言生成误当作业务计算。析数把模型限制在高层意图，将计算、约束和证据校验留给程序。</p><DecisionComparison left={{ title: 'FREE AGENT RISK', items: ['工具选择不可预测', '字段语义可能误判', '结论难以回到当前 Run'] }} right={{ title: 'CONTROLLED SYSTEM', items: ['受限 Intent', '编译后的固定操作', 'Evidence Registry 逐条校验'] }} /></CaseSection>
       <CaseSection index="04 / 11" title="V1 → V2 架构演进" tone="elevated"><XishuArchitectureComparison /></CaseSection>
-      <CaseSection index="05 / 11" title="可信分析 Trace"><ProcessTrace steps={["Intent / constrained", "Compiler / schema checked", "Compute / deterministic", "Registry / run scoped", "Validation / referenced", "Artifact / delivered"]} /></CaseSection>
+      <CaseSection index="05 / 11" title="可信分析 Trace"><ProcessTrace steps={[
+        { label: 'Intent / constrained', detail: '仅识别受控分析意图，不自由扩展未知分析路径。' },
+        { label: 'Compiler / schema checked', detail: '将意图编译为固定 Schema 操作和执行计划。' },
+        { label: 'Compute / deterministic', detail: '由 pandas 完成统计、聚合和趋势计算。' },
+        { label: 'Registry / run scoped', detail: '计算结果注册为当前 Run 内可引用 Evidence。' },
+        { label: 'Validation / referenced', detail: '结论只能引用有效 Evidence，拒绝未知数字来源。' },
+        { label: 'Artifact / delivered', detail: '结果转换为结构化 Text / Metric / Table / Chart。' },
+      ]} /></CaseSection>
       <CaseSection index="06 / 11" title="Artifact 不是聊天气泡"><p>分析结果按用途形成四类结构化 Artifact；每个 Artifact 保留来源和当前 Run 关联。</p><ArtifactShowcase /></CaseSection>
       <CaseSection index="07 / 11" title="Run 生命周期与恢复"><RunRecoveryDiagram /><h3>合作式取消</h3><p>取消信号在安全边界生效；同步计算无法保证立即中断。无分布式队列和多节点执行。</p></CaseSection>
       <CaseSection index="08 / 11" title="界面与证据阅读"><ScreenshotGallery items={[{ path: '/images/xishu/dataset-profile.webp', alt: '析数字段画像界面', width: 1440, height: 900 }, { path: '/images/xishu/run-progress.webp', alt: '析数运行进度界面', width: 1440, height: 900 }, { path: '/images/xishu/artifact-overview.webp', alt: '析数 Artifact 总览', width: 1440, height: 900 }, { path: '/images/xishu/chart-result.webp', alt: '析数图表结果', width: 1440, height: 900 }]} /></CaseSection>

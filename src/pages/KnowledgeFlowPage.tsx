@@ -3,6 +3,7 @@ import { BrowserAcceptanceFlow } from '../components/knowledgeflow/BrowserAccept
 import { RagContextBudget } from '../components/knowledgeflow/RagContextBudget'
 import { SafeDocumentUpdate } from '../components/knowledgeflow/SafeDocumentUpdate'
 import { SourceValidation } from '../components/knowledgeflow/SourceValidation'
+import { DocumentIngestion } from '../components/knowledgeflow/DocumentIngestion'
 import { CaseSection } from '../components/case-study/CaseSection'
 import { CaseStudyHero } from '../components/case-study/CaseStudyHero'
 import { CaseStudyNavigation } from '../components/case-study/CaseStudyNavigation'
@@ -18,7 +19,7 @@ export function KnowledgeFlowPage() {
       <CaseSection index="01 / 12" title="背景与职责"><ProjectContext items={[["PURPOSE", "本地模块化 RAG 知识库"], ["ROLE", "独立完成后端、检索、前端与验收"], ["STATUS", "v0.2.0 Candidate，不是正式 Release"]]} /></CaseSection>
       <CaseSection index="02 / 12" title="用户工作流"><ProcessTrace steps={["上传支持的文档", "解析并切分 Chunk", "生成稳定 ID 与 Embedding", "Similarity / MMR 检索", "执行 Context Budget", "回答或固定拒答", "保存来源快照并恢复展示"]} /></CaseSection>
       <CaseSection index="03 / 12" title="RAG 风险不是只有召回率"><p>系统需要处理来源失联、低质量 Context、上下文越界、更新残留和浏览器会话恢复。没有合格 Context 时，固定拒答比让模型猜测更可靠。</p></CaseSection>
-      <CaseSection index="04 / 12" title="文档摄入" ariaLabel="KnowledgeFlow 已实现能力" tone="rag"><ProjectContext items={[["SUPPORTED", "PDF · TXT · Markdown"], ["EMBEDDING", "BAAI/bge-small-zh-v1.5"], ["VECTOR STORE", "Persistent Chroma"], ["RETRIEVAL", "Similarity / MMR · Cosine Distance Filter"], ["CONTROL", "Context Budget · Refusal · Source Trace"]]} /></CaseSection>
+      <CaseSection index="04 / 12" title="文档摄入" ariaLabel="KnowledgeFlow 已实现能力" tone="rag"><div className="ingestion-layout"><DocumentIngestion /><ProjectContext items={[["SUPPORTED", "PDF · TXT · Markdown"], ["EMBEDDING", "BAAI/bge-small-zh-v1.5"], ["VECTOR STORE", "Persistent Chroma"], ["RETRIEVAL", "Similarity / MMR · Cosine Distance Filter"], ["CONTROL", "Context Budget · Refusal · Source Trace"]]} /></div></CaseSection>
       <CaseSection index="05 / 12" title="Chunk 与稳定 ID"><p>稳定 ID 由 source、page、chunk_index、start_index 与内容 SHA-256 组成，减少同一内容在更新与恢复中的身份漂移。</p><SafeDocumentUpdate /></CaseSection>
       <CaseSection index="06 / 12" title="Retrieval 与 Context"><RagContextBudget /><p>Context Formatter 按字符预算保留完整 Chunk，不截断成无法解释的来源片段。</p></CaseSection>
       <CaseSection index="07 / 12" title="拒答和来源校验"><SourceValidation /></CaseSection>
