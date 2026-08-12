@@ -1,0 +1,74 @@
+[
+  {
+    "label": "1440x900",
+    "route": "/",
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "brokenImages": 0,
+    "fakeCopy": false,
+    "deepseekCopy": false
+  },
+  {
+    "label": "1440x900",
+    "route": "/projects/xishu",
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "brokenImages": 0,
+    "fakeCopy": false,
+    "deepseekCopy": true
+  },
+  {
+    "label": "1280x800",
+    "route": "/",
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "brokenImages": 0,
+    "fakeCopy": false,
+    "deepseekCopy": false
+  },
+  {
+    "label": "1280x800",
+    "route": "/projects/xishu",
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "brokenImages": 0,
+    "fakeCopy": false,
+    "deepseekCopy": true
+  },
+  {
+    "label": "1024x768",
+    "route": "/",
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "brokenImages": 0,
+    "fakeCopy": false,
+    "deepseekCopy": false
+  },
+  {
+    "label": "1024x768",
+    "route": "/projects/xishu",
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "brokenImages": 0,
+    "fakeCopy": false,
+    "deepseekCopy": true
+  },
+  {
+    "label": "390x844",
+    "route": "/",
+    "bodyWidth": 390,
+    "viewportWidth": 390,
+    "brokenImages": 0,
+    "fakeCopy": false,
+    "deepseekCopy": false
+  },
+  {
+    "label": "390x844",
+    "route": "/projects/xishu",
+    "bodyWidth": 390,
+    "viewportWidth": 390,
+    "brokenImages": 0,
+    "fakeCopy": false,
+    "deepseekCopy": true
+  }
+]

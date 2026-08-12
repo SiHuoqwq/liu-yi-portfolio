@@ -1,0 +1,3 @@
+export function RagContextBudget() {
+  return <div className="budget-diagram"><span className="mono diagram-label">示意</span><dl><div><dt className="mono">RETRIEVAL MODE</dt><dd>Similarity / MMR</dd></div><div><dt className="mono">QUALIFICATION</dt><dd>Cosine distance threshold</dd></div><div><dt className="mono">CONTEXT RULE</dt><dd>Complete chunks only</dd></div><div><dt className="mono">BUDGET</dt><dd>Character-based context budget</dd></div></dl><div className="budget-diagram__flow"><span>Retrieved chunks</span><span>Cosine filter</span><span>Character budget</span><span>Complete chunks</span></div></div>
+}

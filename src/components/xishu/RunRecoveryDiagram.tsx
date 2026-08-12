@@ -1,0 +1,3 @@
+export function RunRecoveryDiagram() {
+  return <div className="run-diagram"><span className="mono diagram-label">示意</span><p className="mono run-diagram__root">Conversation</p><div className="run-diagram__entities">{['AnalysisRun', 'RunStep', 'Artifact', 'RunEvent'].map((item) => <span key={item} className="mono">{item}</span>)}</div><div className="run-diagram__channels"><section><h3 className="mono">SSE / REAL-TIME</h3><ul><li>增量事件</li><li>Step 更新</li><li>Heartbeat</li><li>Last-Event-ID</li></ul></section><section><h3 className="mono">REST / RECOVERY</h3><ul><li>最终状态</li><li>历史 Run</li><li>Artifact 读取</li><li>刷新后重新同步</li></ul></section></div><p className="run-diagram__conclusion">实时流负责体验，持久化记录负责可靠性。</p></div>
+}
