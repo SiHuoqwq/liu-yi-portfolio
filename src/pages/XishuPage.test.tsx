@@ -20,6 +20,17 @@ it('keeps Xishu release evidence and unfinished claims in their semantic states'
   }
   expect(within(artifactTypes).queryByText('EVIDENCE')).not.toBeInTheDocument()
 
+  expect(screen.getByText(/合成演示数据/)).toBeVisible()
+  for (const alt of [
+    '析数合成演示数据的数据集画像',
+    '析数课程类别分析结果',
+    '析数结构化表格与图表 Artifact',
+    '析数已完成运行的执行详情',
+    '析数教师维度数据条件不足说明',
+  ]) {
+    expect(screen.getByRole('img', { name: alt })).toBeInTheDocument()
+  }
+
   const implemented = screen.getByRole('region', { name: '析数已实现能力' })
   for (const unsupported of ['OpenAI Provider', 'Redis', 'P95', '云部署']) {
     expect(within(implemented).queryByText(new RegExp(unsupported))).not.toBeInTheDocument()

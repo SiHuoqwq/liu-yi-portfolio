@@ -21,5 +21,6 @@ it('presents the approved home narrative and truthful project evidence in order'
   expect(screen.getByText('59 / 59 Frontend Tests')).toBeVisible()
   expect(screen.getByText(/v0.2.0 Candidate/)).toBeVisible()
   expect(screen.getByText('REAL DEEPSEEK FULL-STACK / NOT VERIFIED')).toBeVisible()
-  expect(screen.getAllByText(/hero-workbench.webp/)).toHaveLength(2)
+  expect(screen.getByRole('img', { name: '析数 工作台首页' })).toBeInTheDocument()
+  expect(screen.getByText('/images/knowledgeflow/hero-workbench.webp')).toBeVisible()
 })

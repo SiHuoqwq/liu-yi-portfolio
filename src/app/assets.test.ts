@@ -1,14 +1,17 @@
 import { assetManifest, getAssetAvailability } from './assets'
 
-it('records the exact approved asset paths without inventing availability', () => {
-  expect(assetManifest.resume.path).toBe('/resume/liu-yi-ai-application-resume.pdf')
-  expect(assetManifest.xishuHero.path).toBe('/images/xishu/hero-workbench.webp')
-  expect(assetManifest.knowledgeflowHero.path).toBe('/images/knowledgeflow/hero-workbench.webp')
-  expect(getAssetAvailability(assetManifest.resume.path)).toBe(false)
-  expect(getAssetAvailability(assetManifest.favicon.path)).toBe(true)
-  expect(
-    Object.entries(assetManifest)
-      .filter(([key]) => key !== 'favicon')
-      .every(([, asset]) => asset.available === false),
-  ).toBe(true)
+it('publishes the selected Xishu evidence assets with their intrinsic dimensions', () => {
+  const expected = [
+    ['xishuHero', '/images/xishu/hero-workbench.webp', 1600, 760],
+    ['xishuDataset', '/images/xishu/dataset-profile.webp', 1600, 980],
+    ['xishuAnalysis', '/images/xishu/analysis-result.webp', 1600, 560],
+    ['xishuArtifact', '/images/xishu/artifact-overview.webp', 1600, 1300],
+    ['xishuRun', '/images/xishu/run-details.webp', 1600, 1000],
+    ['xishuBoundary', '/images/xishu/boundary-refusal.webp', 1600, 900],
+  ] as const
+
+  for (const [key, path, width, height] of expected) {
+    expect(assetManifest[key]).toMatchObject({ path, width, height, available: true })
+    expect(getAssetAvailability(path)).toBe(true)
+  }
 })

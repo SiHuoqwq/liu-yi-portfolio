@@ -52,6 +52,19 @@ button {
   color: var(--color-text-primary);
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.featured-project__visual img,
+.screenshot-gallery__panels img {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
 .mono {
   font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 }
