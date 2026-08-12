@@ -10,9 +10,9 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 1–9 工程验收、Portfolio Visual Refinement Round 2、析数与 KnowledgeFlow 真实素材自动化及作品集接入、项目图片阅读增强均已完成；KnowledgeFlow 已补充真实 DeepSeek 窄范围 React E2E 证据；尚未进入合并或部署阶段。
+- 当前阶段：Phase 1–9 工程验收、Portfolio Visual Refinement Round 2、析数与 KnowledgeFlow 真实素材自动化及作品集接入、项目图片阅读增强均已完成；KnowledgeFlow 已补充真实 DeepSeek 窄范围 React E2E 证据；作品集已发布到公开 GitHub 仓库，尚未部署网站。
 - 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和真实产品 UI 素材接入；Evidence Trace 使用中文界面文案，全部真实项目图片支持可访问的点击放大，两条 Case Study 首屏提供“返回首页”；KnowledgeFlow 首页使用完成工作台主图，Case Study 依次展示空态、文档列表、SSE 流式生成、来源快照和刷新恢复。
-- Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
+- Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行；公开仓库为 `https://github.com/SiHuoqwq/liu-yi-portfolio`。
 
 ## 已确认决策
 
@@ -48,6 +48,7 @@
 ## 待办与下一步
 
 - 后续发布前仍需真实简历和分享图；头像仍为可选资产。析数与 KnowledgeFlow 素材均已接入，未访问私人数据文件或现有知识库正文。
+- 用户已提供并授权原样公开单页 A4 简历（包含手机号与邮箱）和证件照；尚未复制进作品集或接入页面，下一步需完成头像/分享图规格、简历下载入口与部署配置。
 - Lighthouse 已按用户授权以 `13.4.1` 本地 devDependency 安装并完成 3 个 URL 的 Desktop / Mobile 各 3 次 production preview 审计；原始结果与中位数位于 `docs/verification/portfolio.md`。
 - Visual Refinement Round 2 已修复 Hero 与 Selected Work 中文断行，并提高析数、KnowledgeFlow 中段的真实信息密度；下一步仅在用户提供真实资产后进入 Asset Integration，当前不得 merge、push 或部署。
 
@@ -93,3 +94,4 @@
 - 2026-08-13：完成 KnowledgeFlow 初版 Fake Provider 素材自动化后，用户授权真实 DeepSeek 复验。真实验收修正两个仅影响捕获自动化的同步问题：首个空 metadata chunk 不再触发截图延迟，第二轮完成等待绑定第 2 个回答卡；正式产品语义未改变。最终六张素材整组替换为同一次成功真实 Provider 会话，恢复截图只声明当前标签页 `sessionStorage` 刷新恢复，不扩大为长期记忆或跨设备同步。
 - 2026-08-13：完成项目图片阅读增强。首页 Evidence Trace 改为中文工程语义；复用 `ProjectScreenshot` 为首页两张主图与两条 Case Study 共十张截图提供同一可访问预览；两条 Case Study 共用页首返回入口。未生成或改动任何项目素材，未改变项目真实性文案和页面信息结构。
 - 2026-08-13：按用户反馈将首页四个能力分组标题调整为“AI 应用系统”“RAG 与数据处理”“后端与可靠性”“产品界面”，下方技术栈继续使用英文专名。
+- 2026-08-13：创建公开 GitHub 仓库 `SiHuoqwq/liu-yi-portfolio`。公开前扫描确认无 `.env`、API Key、Token 或私钥；为避免暴露本机绝对路径，远端 `main` 使用经过路径脱敏并通过 production build 的单一发布基线，Git tree 为 `cb591e87980088f949380832271f4d402dd0f2da`，远端提交为 `74935289d4e4b677a9fa5fc605056309bd2384a8`。本地完整开发历史保持不变，未部署网站。
