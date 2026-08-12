@@ -5,7 +5,7 @@
 - 源项目：`D:\Codex\Projects\ai-data-analyst-master-release`
 - 源版本：`dc3b010 feat: list conversation questions on dataset overview`
 - 数据：`demo/learning_operations_demo.csv`，项目自带固定种子的公开合成演示数据（360 行、9 列），未使用私人文件。
-- 运行方式：隔离临时数据库与上传目录；production frontend；Fake Provider 确定性演示/测试模式。未调用 DeepSeek，未使用私有 API Key。
+- 运行方式：production frontend 连接当前已配置的真实 DeepSeek 后端。用户于 2026-08-13 明确授权本轮模型调用；自动化没有读取、复制或输出私有 API Key。
 - 截图均来自实际析数 UI；未使用 imagegen、第三方图片或伪造 Dashboard。
 
 ## 最终素材与用途
@@ -24,10 +24,11 @@
 
 ## 未采用候选
 
-- 购买渠道与月度趋势截图保留在临时原始目录，不进入作品集。Fake Provider 的受控路由没有完整覆盖问题中的所有语义，因此不能作为真实模型理解能力证据。
+- 购买渠道与月度趋势的真实 DeepSeek 截图保留在临时原始目录，不进入作品集主图库以控制截图数量。购买渠道回答明确指出缺少学习时长字段，没有编造该指标；月度趋势生成 90 行结构化结果与两张图，但最终结论较机械，视觉与叙事价值低于课程类别结果。
 - 长页 Artifact 元素截图受到产品固定输入框遮挡；最终采用无遮挡的原始长页局部裁切。
 
 ## 已知产品边界
 
 - 教师维度问题正确停止后续 Artifact，Table 与 Chart 均为 0；当前 UI 状态仍显示“分析失败”，建议未来将业务条件不足与系统错误区分，但本阶段未修改析数产品文案。
 - 从历史记录重新进入能够恢复问题与分析结论，但当前界面没有同时显示该 Run 的 Artifact；作品集不声明已验证完整 Artifact 恢复。
+- DeepSeek 课程类别结果准确覆盖完成率、课程评分与退款率，生成 2 张表与 2 张图；购买渠道结果对缺失的学习时长作明确限制说明；教师边界未调用后续分析 Artifact。

@@ -20,7 +20,8 @@ it('keeps Xishu release evidence and unfinished claims in their semantic states'
   }
   expect(within(artifactTypes).queryByText('EVIDENCE')).not.toBeInTheDocument()
 
-  expect(screen.getByText(/合成演示数据/)).toBeVisible()
+  expect(screen.getByText(/DeepSeek 真实模型模式/)).toBeVisible()
+  expect(screen.queryByText(/Fake Provider 确定性演示模式/)).not.toBeInTheDocument()
   for (const alt of [
     '析数合成演示数据的数据集画像',
     '析数课程类别分析结果',

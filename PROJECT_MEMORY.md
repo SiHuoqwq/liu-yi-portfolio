@@ -58,7 +58,7 @@
 - 2026-08-09 Phase 9：Node v22.20.0、Lighthouse 13.4.1、Chrome 151.0.7922.76；最终 18 次 Lighthouse 的 Accessibility、Best Practices、SEO 均为 100。六个场景的 LCP 中位数均低于 2.5s，CLS 中位数均为 0；TBT 仅作为 lab responsiveness proxy，未声明验证 INP。
 - 2026-08-09 Phase 9 最终门禁：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、production build 均通过；`npm audit` 为 0 vulnerabilities。
 - 2026-08-11 Visual Refinement Round 2：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、production build 均通过；1440×900、1280×800、1024×768、768×1024、390×844、360×800 均无页面级横向滚动，截图位于 `docs/visual-review-round-2/`。
-- 2026-08-13 析数素材接入：使用 `ai-data-analyst-master-release` 的公开合成数据 `demo/learning_operations_demo.csv`，在隔离临时数据库、production frontend 与 Fake Provider 确定性演示模式中生成真实 UI 截图；未调用 DeepSeek。九张 WebP 位于 `public/images/xishu/`，作品集精选展示五张；真实性与筛选记录位于 `docs/verification/xishu-assets.md`，多视口截图位于 `docs/visual-review-xishu-assets/`。
+- 2026-08-13 析数素材接入：使用 `ai-data-analyst-master-release` 的公开合成数据 `demo/learning_operations_demo.csv`，通过 production frontend 和用户明确授权的真实 DeepSeek Provider 生成实际 UI 截图。九张 WebP 位于 `public/images/xishu/`，作品集精选展示五张；真实性与筛选记录位于 `docs/verification/xishu-assets.md`，多视口截图位于 `docs/visual-review-xishu-assets/`。
 
 ## 变更记录
 
@@ -79,3 +79,4 @@
 - 2026-08-09：Phase 9 完成；未 push、未创建远程、Tag 或 Release，开发分支与 worktree 保持隔离。
 - 2026-08-11：完成 Visual Refinement Round 2；保留深色技术编辑方向、Engineering Principles、核心 Evidence Trace、导航、字体与颜色系统，仅定向修复标题层级并补足真实技术记录。析数 Artifact 明确为 Text / Metric / Table / Chart，KnowledgeFlow 未新增不真实能力；未使用 imagegen 或伪造素材。
 - 2026-08-13：完成析数素材自动化与接入。购买渠道/月度趋势的 Fake 路由结果因未完整覆盖问题语义而不进入作品集；历史入口已验证恢复问题与结论，但未验证同时恢复 Artifact，因此不扩大恢复声明。教师维度缺字段时正确停止且无 Table/Chart；UI 仍用“分析失败”表示业务条件不足，留作未来产品文案改进，本阶段未修改析数源码。
+- 2026-08-13：用户随后明确授权 DeepSeek 调用。真实 Provider 复验中，课程类别结果完整覆盖完成率/评分/退款率并生成 2 表 2 图；购买渠道对缺失的学习时长明确说明而未编造；月度趋势生成 90 行趋势结果和 2 图；教师边界仍无 Table/Chart。作品集素材已由真实 DeepSeek 版本替换，未读取或输出 API Key。
