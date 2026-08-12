@@ -72,7 +72,7 @@ export const knowledgeFlowProject: ProjectRecord = {
     { label: 'CONTEXT CONTROL', detail: 'Context Budget / Refusal' },
     { label: 'SOURCE TRACE', detail: '回答绑定来源快照' },
   ],
-  metrics: ['17 / 17 Release Gate', '51 / 51 Frontend Tests', 'FAKE PROVIDER FULL-STACK / PASSED', 'REAL DEEPSEEK FULL-STACK / NOT VERIFIED'],
+  metrics: ['17 / 17 Release Gate', 'FAKE PROVIDER FULL-STACK / PASSED', 'REAL DEEPSEEK REACT E2E / VERIFIED', '2-TURN QA · SOURCE TRACE · SESSION RESTORE'],
   route: '/projects/knowledgeflow',
   github: 'https://github.com/SiHuoqwq/langchain-rag-framework',
   imagePath: '/images/knowledgeflow/hero-workbench.webp',

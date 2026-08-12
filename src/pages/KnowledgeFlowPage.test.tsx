@@ -28,6 +28,7 @@ it('keeps KnowledgeFlow supported, verified and planned capabilities semanticall
 
   const verified = screen.getByRole('region', { name: 'KnowledgeFlow 验证状态' })
   expect(within(verified).getByText('FAKE PROVIDER FULL-STACK / PASSED')).toBeVisible()
-  expect(within(verified).getByText('REAL DEEPSEEK FULL-STACK / NOT VERIFIED')).toBeVisible()
+  expect(within(verified).getByText('REAL DEEPSEEK REACT E2E / VERIFIED')).toBeVisible()
+  expect(within(verified).getByText('2-TURN QA · SOURCE TRACE · SESSION RESTORE')).toBeVisible()
   expect(within(verified).queryByText('REAL DEEPSEEK FULL-STACK / VERIFIED')).not.toBeInTheDocument()
 })

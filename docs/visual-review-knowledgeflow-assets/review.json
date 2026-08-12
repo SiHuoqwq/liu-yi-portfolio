@@ -1,0 +1,224 @@
+[
+  {
+    "label": "1440x900",
+    "route": "/",
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "brokenImages": 0,
+    "knowledgeflowImages": [
+      {
+        "src": "/images/knowledgeflow/hero-workbench.webp",
+        "naturalWidth": 1440,
+        "naturalHeight": 684,
+        "renderedWidth": 1118,
+        "renderedHeight": 532
+      }
+    ],
+    "placeholders": 0,
+    "secretMatches": [],
+    "fakeBoundary": true,
+    "realBoundary": true,
+    "realScope": true,
+    "falseFullStackClaim": false,
+    "runtimeErrors": []
+  },
+  {
+    "label": "1440x900",
+    "route": "/projects/knowledgeflow",
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "brokenImages": 0,
+    "knowledgeflowImages": [
+      {
+        "src": "/images/knowledgeflow/upload-empty.webp",
+        "naturalWidth": 1440,
+        "naturalHeight": 900,
+        "renderedWidth": 800,
+        "renderedHeight": 501
+      },
+      {
+        "src": "/images/knowledgeflow/document-list.webp",
+        "naturalWidth": 1440,
+        "naturalHeight": 900,
+        "renderedWidth": 392,
+        "renderedHeight": 246
+      },
+      {
+        "src": "/images/knowledgeflow/streaming-chat.webp",
+        "naturalWidth": 1440,
+        "naturalHeight": 900,
+        "renderedWidth": 392,
+        "renderedHeight": 246
+      },
+      {
+        "src": "/images/knowledgeflow/source-snapshot.webp",
+        "naturalWidth": 1440,
+        "naturalHeight": 900,
+        "renderedWidth": 392,
+        "renderedHeight": 246
+      },
+      {
+        "src": "/images/knowledgeflow/session-restore.webp",
+        "naturalWidth": 1440,
+        "naturalHeight": 900,
+        "renderedWidth": 392,
+        "renderedHeight": 246
+      }
+    ],
+    "placeholders": 0,
+    "secretMatches": [],
+    "fakeBoundary": true,
+    "realBoundary": true,
+    "realScope": true,
+    "falseFullStackClaim": false,
+    "runtimeErrors": []
+  },
+  {
+    "label": "1024x768",
+    "route": "/",
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "brokenImages": 0,
+    "knowledgeflowImages": [
+      {
+        "src": "/images/knowledgeflow/hero-workbench.webp",
+        "naturalWidth": 1024,
+        "naturalHeight": 486,
+        "renderedWidth": 897,
+        "renderedHeight": 427
+      }
+    ],
+    "placeholders": 0,
+    "secretMatches": [],
+    "fakeBoundary": true,
+    "realBoundary": true,
+    "realScope": true,
+    "falseFullStackClaim": false,
+    "runtimeErrors": []
+  },
+  {
+    "label": "1024x768",
+    "route": "/projects/knowledgeflow",
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "brokenImages": 0,
+    "knowledgeflowImages": [
+      {
+        "src": "/images/knowledgeflow/upload-empty.webp",
+        "naturalWidth": 1024,
+        "naturalHeight": 640,
+        "renderedWidth": 640,
+        "renderedHeight": 401
+      },
+      {
+        "src": "/images/knowledgeflow/document-list.webp",
+        "naturalWidth": 1024,
+        "naturalHeight": 640,
+        "renderedWidth": 312,
+        "renderedHeight": 196
+      },
+      {
+        "src": "/images/knowledgeflow/streaming-chat.webp",
+        "naturalWidth": 1024,
+        "naturalHeight": 640,
+        "renderedWidth": 312,
+        "renderedHeight": 196
+      },
+      {
+        "src": "/images/knowledgeflow/source-snapshot.webp",
+        "naturalWidth": 1024,
+        "naturalHeight": 640,
+        "renderedWidth": 312,
+        "renderedHeight": 196
+      },
+      {
+        "src": "/images/knowledgeflow/session-restore.webp",
+        "naturalWidth": 1024,
+        "naturalHeight": 640,
+        "renderedWidth": 312,
+        "renderedHeight": 196
+      }
+    ],
+    "placeholders": 0,
+    "secretMatches": [],
+    "fakeBoundary": true,
+    "realBoundary": true,
+    "realScope": true,
+    "falseFullStackClaim": false,
+    "runtimeErrors": []
+  },
+  {
+    "label": "390x844",
+    "route": "/",
+    "bodyWidth": 390,
+    "viewportWidth": 390,
+    "brokenImages": 0,
+    "knowledgeflowImages": [
+      {
+        "src": "/images/knowledgeflow/hero-workbench.webp",
+        "naturalWidth": 390,
+        "naturalHeight": 185,
+        "renderedWidth": 308,
+        "renderedHeight": 147
+      }
+    ],
+    "placeholders": 0,
+    "secretMatches": [],
+    "fakeBoundary": true,
+    "realBoundary": true,
+    "realScope": true,
+    "falseFullStackClaim": false,
+    "runtimeErrors": []
+  },
+  {
+    "label": "390x844",
+    "route": "/projects/knowledgeflow",
+    "bodyWidth": 390,
+    "viewportWidth": 390,
+    "brokenImages": 0,
+    "knowledgeflowImages": [
+      {
+        "src": "/images/knowledgeflow/upload-empty.webp",
+        "naturalWidth": 390,
+        "naturalHeight": 243,
+        "renderedWidth": 350,
+        "renderedHeight": 220
+      },
+      {
+        "src": "/images/knowledgeflow/document-list.webp",
+        "naturalWidth": 390,
+        "naturalHeight": 243,
+        "renderedWidth": 350,
+        "renderedHeight": 220
+      },
+      {
+        "src": "/images/knowledgeflow/streaming-chat.webp",
+        "naturalWidth": 390,
+        "naturalHeight": 243,
+        "renderedWidth": 350,
+        "renderedHeight": 220
+      },
+      {
+        "src": "/images/knowledgeflow/source-snapshot.webp",
+        "naturalWidth": 390,
+        "naturalHeight": 243,
+        "renderedWidth": 350,
+        "renderedHeight": 220
+      },
+      {
+        "src": "/images/knowledgeflow/session-restore.webp",
+        "naturalWidth": 390,
+        "naturalHeight": 243,
+        "renderedWidth": 350,
+        "renderedHeight": 220
+      }
+    ],
+    "placeholders": 0,
+    "secretMatches": [],
+    "fakeBoundary": true,
+    "realBoundary": true,
+    "realScope": true,
+    "falseFullStackClaim": false,
+    "runtimeErrors": []
+  }
+]

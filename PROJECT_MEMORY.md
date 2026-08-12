@@ -10,8 +10,8 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 1–9 工程验收与 Portfolio Visual Refinement Round 2 已完成；析数真实素材自动化与作品集接入已完成，尚未进入 KnowledgeFlow 素材、合并或部署阶段。
-- 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和第二轮定向视觉优化；析数已接入真实产品 UI 截图，KnowledgeFlow 仍使用明确的真实资产缺失占位。
+- 当前阶段：Phase 1–9 工程验收、Portfolio Visual Refinement Round 2、析数与 KnowledgeFlow 真实素材自动化及作品集接入均已完成；KnowledgeFlow 已补充真实 DeepSeek 窄范围 React E2E 证据；尚未进入合并或部署阶段。
+- 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和真实产品 UI 素材接入；KnowledgeFlow 首页使用完成工作台主图，Case Study 依次展示空态、文档列表、SSE 流式生成、来源快照和刷新恢复。
 - Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
 
 ## 已确认决策
@@ -42,7 +42,7 @@
 
 ## 待办与下一步
 
-- 后续发布前仍需真实简历、KnowledgeFlow 项目截图和分享图；头像仍为可选资产。析数素材已使用项目自带公开合成演示数据自动生成并接入，未访问私人数据文件。
+- 后续发布前仍需真实简历和分享图；头像仍为可选资产。析数与 KnowledgeFlow 素材均已接入，未访问私人数据文件或现有知识库正文。
 - Lighthouse 已按用户授权以 `13.4.1` 本地 devDependency 安装并完成 3 个 URL 的 Desktop / Mobile 各 3 次 production preview 审计；原始结果与中位数位于 `docs/verification/portfolio.md`。
 - Visual Refinement Round 2 已修复 Hero 与 Selected Work 中文断行，并提高析数、KnowledgeFlow 中段的真实信息密度；下一步仅在用户提供真实资产后进入 Asset Integration，当前不得 merge、push 或部署。
 
@@ -59,6 +59,9 @@
 - 2026-08-09 Phase 9 最终门禁：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、production build 均通过；`npm audit` 为 0 vulnerabilities。
 - 2026-08-11 Visual Refinement Round 2：typecheck、lint、Vitest 26/26、系统 Chrome Playwright 22/22、production build 均通过；1440×900、1280×800、1024×768、768×1024、390×844、360×800 均无页面级横向滚动，截图位于 `docs/visual-review-round-2/`。
 - 2026-08-13 析数素材接入：使用 `ai-data-analyst-master-release` 的公开合成数据 `demo/learning_operations_demo.csv`，通过 production frontend 和用户明确授权的真实 DeepSeek Provider 生成实际 UI 截图。九张 WebP 位于 `public/images/xishu/`，作品集精选展示五张；真实性与筛选记录位于 `docs/verification/xishu-assets.md`，多视口截图位于 `docs/visual-review-xishu-assets/`。
+- 2026-08-13 KnowledgeFlow 素材接入：使用 `langchain-rag-framework` commit `c75985a611d10fc9ae8adf77e654f4606d0907d8` 和公开合成 Markdown，在隔离临时数据目录通过实际 React/FastAPI/Playwright 与真实 `deepseek-v4-pro` 生成六张 WebP；真实性记录位于 `docs/verification/knowledgeflow-assets.md`，视觉检查位于 `docs/visual-review-knowledgeflow-assets/`。Fake Provider 边界继续保留；真实声明严格限定为 `REAL DEEPSEEK REACT E2E / VERIFIED` 与 `2-TURN QA · SOURCE TRACE · SESSION RESTORE`，不是 Full-stack 通过。
+- 2026-08-13 KnowledgeFlow 真实验收：本任务累计 6 次模型请求；两次截图同步失败运行分别产生 1 次与 2 次请求，最终通过运行 3 次（第一轮回答、第二轮改写、第二轮回答）。两轮事实、S1 来源、真实 SSE、有界历史、当前标签页刷新恢复通过；正式 Chroma/uploads 指纹不变，未访问 `.env` 内容、私人文件或既有知识库正文。
+- 2026-08-13 KnowledgeFlow 最终离线验证：源项目安全模式 Release Check 17 项、Frontend 51/51、Node 回归 1/1、production build、Fake Provider 浏览器全栈均通过；作品集 typecheck、lint、Vitest 27/27、Playwright 22/22、production build 通过；1440×900、1024×768、390×844 的首页及 Case Study 均无溢出、破图、占位、敏感文本或错误 Full-stack 声明。
 
 ## 变更记录
 
@@ -80,3 +83,4 @@
 - 2026-08-11：完成 Visual Refinement Round 2；保留深色技术编辑方向、Engineering Principles、核心 Evidence Trace、导航、字体与颜色系统，仅定向修复标题层级并补足真实技术记录。析数 Artifact 明确为 Text / Metric / Table / Chart，KnowledgeFlow 未新增不真实能力；未使用 imagegen 或伪造素材。
 - 2026-08-13：完成析数素材自动化与接入。购买渠道/月度趋势的 Fake 路由结果因未完整覆盖问题语义而不进入作品集；历史入口已验证恢复问题与结论，但未验证同时恢复 Artifact，因此不扩大恢复声明。教师维度缺字段时正确停止且无 Table/Chart；UI 仍用“分析失败”表示业务条件不足，留作未来产品文案改进，本阶段未修改析数源码。
 - 2026-08-13：用户随后明确授权 DeepSeek 调用。真实 Provider 复验中，课程类别结果完整覆盖完成率/评分/退款率并生成 2 表 2 图；购买渠道对缺失的学习时长明确说明而未编造；月度趋势生成 90 行趋势结果和 2 图；教师边界仍无 Table/Chart。作品集素材已由真实 DeepSeek 版本替换，未读取或输出 API Key。
+- 2026-08-13：完成 KnowledgeFlow 初版 Fake Provider 素材自动化后，用户授权真实 DeepSeek 复验。真实验收修正两个仅影响捕获自动化的同步问题：首个空 metadata chunk 不再触发截图延迟，第二轮完成等待绑定第 2 个回答卡；正式产品语义未改变。最终六张素材整组替换为同一次成功真实 Provider 会话，恢复截图只声明当前标签页 `sessionStorage` 刷新恢复，不扩大为长期记忆或跨设备同步。

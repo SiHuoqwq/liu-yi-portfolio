@@ -66,8 +66,8 @@ Playwright 覆盖首页、两个项目往返、逐路由 SEO、GitHub 外链、�
 ## Content Truth Review
 
 - 析数与 KnowledgeFlow 的 Implemented / Supported / Verified、Current Limitations、Next / Planned 使用独立语义区域。
-- OCR、BM25、Reranker、Hybrid Search、Agent、LangGraph、P95、云部署和真实 DeepSeek 等未完成功能只出现在限制、计划或明确否定说明中。
-- KnowledgeFlow 的 Fake Provider PASS 与 Real DeepSeek NOT VERIFIED 保持明确区分。
+- OCR、BM25、Reranker、Hybrid Search、Agent、LangGraph、P95 和云部署等未完成功能只出现在限制、计划或明确否定说明中。
+- KnowledgeFlow 保留 Fake Provider PASS，并把真实模型结果严格限定为 `REAL DEEPSEEK REACT E2E / VERIFIED` 与 `2-TURN QA · SOURCE TRACE · SESSION RESTORE`；未写成 Full-stack 通过。
 - 未发现伪造性能指标、伪造截图、虚构 canonical、失效简历链接或把 Candidate 写成 Released 的情况。
 
 ## Visual Review
