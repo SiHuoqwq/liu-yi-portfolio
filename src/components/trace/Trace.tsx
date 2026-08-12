@@ -8,7 +8,7 @@ export function Trace() {
   const reduced = useReducedMotionPreference()
   return (
     <div className="trace" data-motion={reduced ? 'reduced' : 'sequence'}>
-      <div className="trace__header"><span className="mono">TRACE / 0001</span><span className="mono">EVIDENCE PATH</span></div>
+      <div className="trace__header"><span className="mono">轨迹 / 0001</span><span className="mono">证据路径</span></div>
       <TraceProgress />
       <ol>
         {heroTraceSteps.map((step, index) => <TraceStep key={step.label} step={step} index={index} reduced={reduced} />)}

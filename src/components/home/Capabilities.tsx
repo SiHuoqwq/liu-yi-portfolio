@@ -1,8 +1,8 @@
 const capabilities = [
-  ['AI APPLICATION SYSTEMS', 'LangChain · LangGraph · Tool Calling · DeepSeek API · Structured Output · Provider Abstraction · Prompt & Context Control'],
-  ['RAG & DATA PROCESSING', 'pandas · NumPy · BGE Embedding · Chroma · Similarity / MMR · Document Chunking · Context Budget · Source Tracking'],
-  ['BACKEND & RELIABILITY', 'Python · FastAPI · Pydantic · SQLAlchemy · Alembic · REST API · SSE · SQLite'],
-  ['PRODUCT INTERFACE', 'React · TypeScript · Vite · TanStack Query · Tailwind CSS · Vitest · Testing Library · Responsive UI'],
+  ['AI 应用系统', 'LangChain · LangGraph · Tool Calling · DeepSeek API · Structured Output · Provider Abstraction · Prompt & Context Control'],
+  ['RAG 与数据处理', 'pandas · NumPy · BGE Embedding · Chroma · Similarity / MMR · Document Chunking · Context Budget · Source Tracking'],
+  ['后端与可靠性', 'Python · FastAPI · Pydantic · SQLAlchemy · Alembic · REST API · SSE · SQLite'],
+  ['产品界面', 'React · TypeScript · Vite · TanStack Query · Tailwind CSS · Vitest · Testing Library · Responsive UI'],
 ] as const
 
 export function Capabilities() {

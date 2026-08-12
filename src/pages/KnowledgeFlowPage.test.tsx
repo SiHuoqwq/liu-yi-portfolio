@@ -4,6 +4,7 @@ import { renderApp } from '../test/render'
 it('keeps KnowledgeFlow supported, verified and planned capabilities semantically separate', async () => {
   renderApp(['/projects/knowledgeflow'])
   expect(await screen.findByRole('heading', { level: 1, name: /KnowledgeFlow AI/ })).toBeVisible()
+  expect(screen.getByRole('link', { name: '返回首页' })).toHaveAttribute('href', '/')
   expect(screen.getAllByTestId('case-section')).toHaveLength(13)
 
   const supported = screen.getByRole('region', { name: 'KnowledgeFlow 已实现能力' })

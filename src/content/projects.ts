@@ -25,11 +25,11 @@ export type ProjectRecord = {
 }
 
 export const heroTraceSteps: readonly TraceStepRecord[] = [
-  { index: '01', label: 'INTENT', status: 'constrained' },
-  { index: '02', label: 'PLAN', status: 'compiled' },
-  { index: '03', label: 'COMPUTE', status: 'deterministic' },
-  { index: '04', label: 'EVIDENCE', status: 'validated' },
-  { index: '05', label: 'ARTIFACT', status: 'delivered' },
+  { index: '01', label: '意图', status: '已约束' },
+  { index: '02', label: '计划', status: '已编译' },
+  { index: '03', label: '计算', status: '确定性' },
+  { index: '04', label: '证据', status: '已验证' },
+  { index: '05', label: '产物', status: '已交付' },
 ]
 
 export const xishuProject: ProjectRecord = {

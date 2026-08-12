@@ -11,13 +11,35 @@ test('presents the homepage and routes through both evidence case studies', asyn
   await expect(page.getByRole('heading', { level: 1 })).toContainText('析数')
   await expect(page).toHaveTitle('析数｜可信 AI 数据分析工作台 Case Study')
 
-  await page.getByRole('link', { name: /KnowledgeFlow AI · 本地模块化 RAG/ }).click()
+  await page.getByRole('link', { name: '返回首页', exact: true }).click()
+  await expect(page).toHaveURL(/\/$/)
+
+  await page.getByRole('link', { name: '查看KnowledgeFlow AI Case Study' }).click()
   await expect(page).toHaveURL(/\/projects\/knowledgeflow$/)
   await expect(page.getByRole('heading', { level: 1 })).toContainText('KnowledgeFlow AI')
   await expect(page).toHaveTitle('KnowledgeFlow AI｜本地模块化 RAG Case Study')
 
-  await page.getByRole('link', { name: /返回首页 \/ Selected Work/ }).click()
+  await page.getByRole('link', { name: '返回首页', exact: true }).click()
   await expect(page).toHaveURL(/\/$/)
+})
+
+test('enlarges real project images and restores focus after Escape', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/')
+
+  const trigger = page.getByRole('button', { name: '放大查看：析数 工作台首页' })
+  await trigger.scrollIntoViewIfNeeded()
+  await trigger.click()
+
+  const dialog = page.getByRole('dialog', { name: '图片预览：析数 工作台首页' })
+  await expect(dialog).toBeVisible()
+  await expect(page.getByRole('button', { name: '关闭图片预览' })).toBeFocused()
+  await expect(page.locator('body')).toHaveAttribute('data-image-viewer-open', 'true')
+
+  await page.keyboard.press('Escape')
+  await expect(dialog).toBeHidden()
+  await expect(trigger).toBeFocused()
+  await expect(page.locator('body')).not.toHaveAttribute('data-image-viewer-open')
 })
 
 test('keeps GitHub external and reports the missing resume without a broken link', async ({ page }) => {

@@ -25,4 +25,11 @@ it('presents the approved home narrative and truthful project evidence in order'
   expect(screen.queryByText('REAL DEEPSEEK FULL-STACK / VERIFIED')).not.toBeInTheDocument()
   expect(screen.getByRole('img', { name: '析数 工作台首页' })).toBeInTheDocument()
   expect(screen.getByRole('img', { name: 'KnowledgeFlow AI 工作台首页' })).toBeInTheDocument()
+
+  for (const title of ['AI 应用系统', 'RAG 与数据处理', '后端与可靠性', '产品界面']) {
+    expect(screen.getByRole('heading', { level: 3, name: title })).toBeVisible()
+  }
+  expect(screen.getByText(/LangChain · LangGraph · Tool Calling · DeepSeek API/)).toBeVisible()
+  expect(screen.getByText(/React · TypeScript · Vite · TanStack Query/)).toBeVisible()
+  expect(screen.queryByRole('heading', { name: 'AI APPLICATION SYSTEMS' })).not.toBeInTheDocument()
 })

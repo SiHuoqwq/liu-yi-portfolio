@@ -10,8 +10,8 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 1–9 工程验收、Portfolio Visual Refinement Round 2、析数与 KnowledgeFlow 真实素材自动化及作品集接入均已完成；KnowledgeFlow 已补充真实 DeepSeek 窄范围 React E2E 证据；尚未进入合并或部署阶段。
-- 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和真实产品 UI 素材接入；KnowledgeFlow 首页使用完成工作台主图，Case Study 依次展示空态、文档列表、SSE 流式生成、来源快照和刷新恢复。
+- 当前阶段：Phase 1–9 工程验收、Portfolio Visual Refinement Round 2、析数与 KnowledgeFlow 真实素材自动化及作品集接入、项目图片阅读增强均已完成；KnowledgeFlow 已补充真实 DeepSeek 窄范围 React E2E 证据；尚未进入合并或部署阶段。
+- 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和真实产品 UI 素材接入；Evidence Trace 使用中文界面文案，全部真实项目图片支持可访问的点击放大，两条 Case Study 首屏提供“返回首页”；KnowledgeFlow 首页使用完成工作台主图，Case Study 依次展示空态、文档列表、SSE 流式生成、来源快照和刷新恢复。
 - Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
 
 ## 已确认决策
@@ -31,6 +31,8 @@
 - Phase 1 必须非破坏式初始化，保留 `AGENTS.md`、`PROJECT_MEMORY.md` 与 `docs/`；create-vite 不安全时手动创建 Vite + React + TypeScript 骨架。
 - 真实性测试检查语义状态而非禁止关键词本身；未完成功能只能位于 `CURRENT LIMITATIONS`、`NEXT / PLANNED` 或明确否定说明，不得归入 Implemented、Supported、Verified、Core Capability 或 Released Feature。
 - 不调用 imagegen，不伪造项目截图；真实资产缺失时使用明确的 `AssetPlaceholder`，并列为发布门禁问题。
+- 用户已批准 2026-08-13 项目图片阅读增强：Evidence Trace 可见文案中文化；首页和两条 Case Study 的真实项目截图使用单图沉浸预览；两条项目页顶部增加“返回首页”。保持既有颜色、字体、页面结构、真实性叙事与签名视觉，不引入轮播或第三方依赖。
+- 首页能力分组标题采用中文，保留必要的 `AI`、`RAG` 专业术语；分组下的框架、工具、协议与技能专名保持英文原名。
 
 ## 关键路径
 
@@ -39,6 +41,9 @@
 - 正式设计规格：`docs/specs/portfolio-design-spec.md`
 - 实施计划：`docs/plans/portfolio-implementation-plan.md`
 - 当前正式需求副本：`C:\Users\35345\.codex\attachments\9fc44240-9ba2-432b-a52a-b64f3592b069\pasted-text.txt`
+- 项目图片阅读增强规格：`docs/superpowers/specs/2026-08-13-project-image-viewer-design.md`
+- 项目图片阅读增强计划：`docs/superpowers/plans/2026-08-13-project-image-viewer.md`
+- 项目图片阅读增强视觉检查：`docs/visual-review-image-viewer/`
 
 ## 待办与下一步
 
@@ -62,6 +67,8 @@
 - 2026-08-13 KnowledgeFlow 素材接入：使用 `langchain-rag-framework` commit `c75985a611d10fc9ae8adf77e654f4606d0907d8` 和公开合成 Markdown，在隔离临时数据目录通过实际 React/FastAPI/Playwright 与真实 `deepseek-v4-pro` 生成六张 WebP；真实性记录位于 `docs/verification/knowledgeflow-assets.md`，视觉检查位于 `docs/visual-review-knowledgeflow-assets/`。Fake Provider 边界继续保留；真实声明严格限定为 `REAL DEEPSEEK REACT E2E / VERIFIED` 与 `2-TURN QA · SOURCE TRACE · SESSION RESTORE`，不是 Full-stack 通过。
 - 2026-08-13 KnowledgeFlow 真实验收：本任务累计 6 次模型请求；两次截图同步失败运行分别产生 1 次与 2 次请求，最终通过运行 3 次（第一轮回答、第二轮改写、第二轮回答）。两轮事实、S1 来源、真实 SSE、有界历史、当前标签页刷新恢复通过；正式 Chroma/uploads 指纹不变，未访问 `.env` 内容、私人文件或既有知识库正文。
 - 2026-08-13 KnowledgeFlow 最终离线验证：源项目安全模式 Release Check 17 项、Frontend 51/51、Node 回归 1/1、production build、Fake Provider 浏览器全栈均通过；作品集 typecheck、lint、Vitest 27/27、Playwright 22/22、production build 通过；1440×900、1024×768、390×844 的首页及 Case Study 均无溢出、破图、占位、敏感文本或错误 Full-stack 声明。
+- 2026-08-13 项目图片阅读增强：typecheck、lint、Vitest 30/30、系统 Chrome Playwright 23/23、production build 均通过；首页、析数与 KnowledgeFlow 在 1440×900、1024×768、390×844 均无横向溢出，三档图片预览完整显示。预览支持关闭按钮、遮罩、Escape、焦点循环与恢复、可重入背景 inert 和滚动锁定；占位图保持不可交互。
+- 2026-08-13 能力分组标题中文化：首页定向单测、typecheck、lint 与 production build 通过；技术栈英文专名未修改。
 
 ## 变更记录
 
@@ -84,3 +91,5 @@
 - 2026-08-13：完成析数素材自动化与接入。购买渠道/月度趋势的 Fake 路由结果因未完整覆盖问题语义而不进入作品集；历史入口已验证恢复问题与结论，但未验证同时恢复 Artifact，因此不扩大恢复声明。教师维度缺字段时正确停止且无 Table/Chart；UI 仍用“分析失败”表示业务条件不足，留作未来产品文案改进，本阶段未修改析数源码。
 - 2026-08-13：用户随后明确授权 DeepSeek 调用。真实 Provider 复验中，课程类别结果完整覆盖完成率/评分/退款率并生成 2 表 2 图；购买渠道对缺失的学习时长明确说明而未编造；月度趋势生成 90 行趋势结果和 2 图；教师边界仍无 Table/Chart。作品集素材已由真实 DeepSeek 版本替换，未读取或输出 API Key。
 - 2026-08-13：完成 KnowledgeFlow 初版 Fake Provider 素材自动化后，用户授权真实 DeepSeek 复验。真实验收修正两个仅影响捕获自动化的同步问题：首个空 metadata chunk 不再触发截图延迟，第二轮完成等待绑定第 2 个回答卡；正式产品语义未改变。最终六张素材整组替换为同一次成功真实 Provider 会话，恢复截图只声明当前标签页 `sessionStorage` 刷新恢复，不扩大为长期记忆或跨设备同步。
+- 2026-08-13：完成项目图片阅读增强。首页 Evidence Trace 改为中文工程语义；复用 `ProjectScreenshot` 为首页两张主图与两条 Case Study 共十张截图提供同一可访问预览；两条 Case Study 共用页首返回入口。未生成或改动任何项目素材，未改变项目真实性文案和页面信息结构。
+- 2026-08-13：按用户反馈将首页四个能力分组标题调整为“AI 应用系统”“RAG 与数据处理”“后端与可靠性”“产品界面”，下方技术栈继续使用英文专名。

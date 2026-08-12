@@ -4,6 +4,7 @@ import { renderApp } from '../test/render'
 it('keeps Xishu release evidence and unfinished claims in their semantic states', async () => {
   renderApp(['/projects/xishu'])
   expect(await screen.findByRole('heading', { level: 1, name: /析数/ })).toBeVisible()
+  expect(screen.getByRole('link', { name: '返回首页' })).toHaveAttribute('href', '/')
   expect(screen.getAllByTestId('case-section')).toHaveLength(12)
   expect(screen.getByText('183 / 183 PASS')).toBeVisible()
   expect(screen.getByText('59 / 59 PASS')).toBeVisible()

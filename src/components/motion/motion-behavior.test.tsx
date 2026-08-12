@@ -21,7 +21,7 @@ it('uses fully visible static trace and project flow when reduced motion is requ
     </ReducedMotionProvider>,
   )
 
-  expect(screen.getByText('TRACE COMPLETE').closest('[data-motion]')).toHaveAttribute('data-motion', 'reduced')
+  expect(screen.getByText('轨迹完成').closest('[data-motion]')).toHaveAttribute('data-motion', 'reduced')
   expect(screen.getByText('可信 AI 数据分析工作台').closest('[data-stack-mode]')).toHaveAttribute('data-stack-mode', 'static')
   for (const item of screen.getAllByRole('listitem').filter((node) => node.classList.contains('trace-step'))) {
     expect(item).not.toHaveStyle({ opacity: 0 })

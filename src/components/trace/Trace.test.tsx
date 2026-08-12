@@ -11,8 +11,13 @@ it('renders every evidence step and final status without relying on animation', 
   })
 
   render(<ReducedMotionProvider><Trace /></ReducedMotionProvider>)
-  for (const label of ['INTENT', 'PLAN', 'COMPUTE', 'EVIDENCE', 'ARTIFACT']) {
+  expect(screen.getByText('轨迹 / 0001')).toBeVisible()
+  expect(screen.getByText('证据路径')).toBeVisible()
+  for (const label of ['意图', '计划', '计算', '证据', '产物']) {
     expect(screen.getByText(label)).toBeVisible()
   }
-  expect(screen.getByText('TRACE COMPLETE')).toBeVisible()
+  for (const status of ['已约束', '已编译', '确定性', '已验证', '已交付']) {
+    expect(screen.getByText(status)).toBeVisible()
+  }
+  expect(screen.getByText('轨迹完成')).toBeVisible()
 })
