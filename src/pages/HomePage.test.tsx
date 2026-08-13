@@ -32,4 +32,10 @@ it('presents the approved home narrative and truthful project evidence in order'
   expect(screen.getByText(/LangChain · LangGraph · Tool Calling · DeepSeek API/)).toBeVisible()
   expect(screen.getByText(/React · TypeScript · Vite · TanStack Query/)).toBeVisible()
   expect(screen.queryByRole('heading', { name: 'AI APPLICATION SYSTEMS' })).not.toBeInTheDocument()
+
+  const about = screen.getByRole('region', { name: /刘燚.*LIU YI/ })
+  expect(within(about).getByRole('img', { name: '刘燚个人照片' })).toHaveAttribute('src', '/images/profile/liu-yi.webp')
+  for (const resume of screen.getAllByRole('link', { name: '下载简历' })) {
+    expect(resume).toHaveAttribute('href', '/resume/liu-yi-ai-application-resume.pdf')
+  }
 })

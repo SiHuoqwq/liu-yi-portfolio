@@ -42,16 +42,34 @@ test('enlarges real project images and restores focus after Escape', async ({ pa
   await expect(page.locator('body')).not.toHaveAttribute('data-image-viewer-open')
 })
 
-test('keeps GitHub external and reports the missing resume without a broken link', async ({ page }) => {
+test('keeps GitHub external and publishes the approved resume and portrait', async ({ page }) => {
   await page.goto('/')
   const github = page.getByRole('link', { name: 'GitHub' }).first()
   await expect(github).toHaveAttribute('href', 'https://github.com/SiHuoqwq')
   await expect(github).toHaveAttribute('target', '_blank')
   await expect(github).toHaveAttribute('rel', 'noreferrer')
 
-  const resume = page.getByText('下载简历', { exact: true }).first()
-  await expect(resume).toHaveAttribute('aria-disabled', 'true')
-  await expect(resume).not.toHaveAttribute('href')
+  const resumePath = '/resume/liu-yi-ai-application-resume.pdf'
+  const resume = page.getByRole('link', { name: '下载简历' }).first()
+  await expect(resume).toHaveAttribute('href', resumePath)
+  const resumeResponse = await page.request.get(resumePath)
+  expect(resumeResponse.ok()).toBe(true)
+  expect(resumeResponse.headers()['content-type']).toContain('application/pdf')
+
+  const about = page.getByRole('region', { name: /刘燚.*LIU YI/ })
+  const portrait = about.getByRole('img', { name: '刘燚个人照片' })
+  await portrait.scrollIntoViewIfNeeded()
+  await expect(portrait).toBeVisible()
+  await expect(portrait).toHaveAttribute('width', '591')
+  await expect(portrait).toHaveAttribute('height', '827')
+  const decodedSize = await page.evaluate(async () => {
+    const response = await fetch('/images/profile/liu-yi.webp')
+    const bitmap = await createImageBitmap(await response.blob())
+    const size = [bitmap.width, bitmap.height]
+    bitmap.close()
+    return size
+  })
+  expect(decodedSize).toEqual([591, 827])
 })
 
 test('mobile menu traps the interaction and restores focus after Escape', async ({ page }) => {

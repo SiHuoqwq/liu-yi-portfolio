@@ -29,4 +29,24 @@ describe('route SEO', () => {
     applySeo('/', { siteUrl: 'not a url', shareImageAvailable: false })
     expect(document.querySelector('link[rel="canonical"]')).not.toBeInTheDocument()
   })
+
+  it('publishes complete social share metadata for a valid configured site URL', () => {
+    applySeo('/', { siteUrl: 'https://portfolio.example/', shareImageAvailable: true })
+
+    expect(document.querySelector('meta[property="og:image"]')).toHaveAttribute(
+      'content',
+      'https://portfolio.example/images/share/portfolio.webp',
+    )
+    expect(document.querySelector('meta[property="og:image:width"]')).toHaveAttribute('content', '1200')
+    expect(document.querySelector('meta[property="og:image:height"]')).toHaveAttribute('content', '630')
+    expect(document.querySelector('meta[property="og:image:alt"]')).toHaveAttribute(
+      'content',
+      '刘燚 AI 应用开发工程师作品集，展示析数与 KnowledgeFlow AI 工程证据',
+    )
+    expect(document.querySelector('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image')
+    expect(document.querySelector('meta[name="twitter:image"]')).toHaveAttribute(
+      'content',
+      'https://portfolio.example/images/share/portfolio.webp',
+    )
+  })
 })

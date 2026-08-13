@@ -68,6 +68,11 @@ export function applySeo(pathname: string, options: SeoOptions = {}) {
   document.head.querySelector('link[rel="canonical"]')?.remove()
   document.head.querySelector('meta[property="og:url"]')?.remove()
   document.head.querySelector('meta[property="og:image"]')?.remove()
+  document.head.querySelector('meta[property="og:image:width"]')?.remove()
+  document.head.querySelector('meta[property="og:image:height"]')?.remove()
+  document.head.querySelector('meta[property="og:image:alt"]')?.remove()
+  document.head.querySelector('meta[name="twitter:card"]')?.remove()
+  document.head.querySelector('meta[name="twitter:image"]')?.remove()
 
   if (!siteUrl) return
   const canonicalUrl = new URL(pathname, siteUrl)
@@ -78,7 +83,13 @@ export function applySeo(pathname: string, options: SeoOptions = {}) {
   setMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl.href)
 
   if (options.shareImageAvailable) {
-    setMeta('meta[property="og:image"]', { property: 'og:image' }, new URL(assetManifest.shareImage.path, siteUrl).href)
+    const shareImageUrl = new URL(assetManifest.shareImage.path, siteUrl).href
+    setMeta('meta[property="og:image"]', { property: 'og:image' }, shareImageUrl)
+    setMeta('meta[property="og:image:width"]', { property: 'og:image:width' }, '1200')
+    setMeta('meta[property="og:image:height"]', { property: 'og:image:height' }, '630')
+    setMeta('meta[property="og:image:alt"]', { property: 'og:image:alt' }, '刘燚 AI 应用开发工程师作品集，展示析数与 KnowledgeFlow AI 工程证据')
+    setMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image')
+    setMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, shareImageUrl)
   }
 }
 

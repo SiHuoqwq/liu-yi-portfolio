@@ -7,8 +7,8 @@ export type AssetRecord = {
 }
 
 export const assetManifest = {
-  resume: { path: '/resume/liu-yi-ai-application-resume.pdf', available: false, requiredForRelease: true },
-  profile: { path: '/images/profile/liu-yi.webp', available: false, requiredForRelease: false },
+  resume: { path: '/resume/liu-yi-ai-application-resume.pdf', available: true, requiredForRelease: true },
+  profile: { path: '/images/profile/liu-yi.webp', available: true, requiredForRelease: false, width: 591, height: 827 },
   xishuHero: { path: '/images/xishu/hero-workbench.webp', available: true, requiredForRelease: true, width: 1600, height: 760 },
   xishuDataset: { path: '/images/xishu/dataset-profile.webp', available: true, requiredForRelease: true, width: 1600, height: 980 },
   xishuAnalysis: { path: '/images/xishu/analysis-result.webp', available: true, requiredForRelease: true, width: 1600, height: 560 },
@@ -24,7 +24,7 @@ export const assetManifest = {
   knowledgeflowSource: { path: '/images/knowledgeflow/source-snapshot.webp', available: true, requiredForRelease: true, width: 1600, height: 1000 },
   knowledgeflowRestore: { path: '/images/knowledgeflow/session-restore.webp', available: true, requiredForRelease: true, width: 1600, height: 1000 },
   favicon: { path: '/favicon.svg', available: true, requiredForRelease: true },
-  shareImage: { path: '/images/share/portfolio.webp', available: false, requiredForRelease: true },
+  shareImage: { path: '/images/share/portfolio.webp', available: true, requiredForRelease: true, width: 1200, height: 630 },
 } as const satisfies Record<string, AssetRecord>
 
 export function getAssetAvailability(path: string) {
