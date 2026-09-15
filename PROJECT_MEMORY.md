@@ -10,8 +10,13 @@
 ## 当前项目状态
 
 - 仓库用途：个人作品集网站。
-- 当前阶段：Phase 1–9 工程验收、Portfolio Visual Refinement Round 2、析数与 KnowledgeFlow 真实素材自动化及作品集接入、项目图片阅读增强均已完成；KnowledgeFlow 已补充真实 DeepSeek 窄范围 React E2E 证据；尚未进入合并或部署阶段。
+- 当前阶段：作品集网站与 AI 应用开发简历均已完成，现已进入求职投递阶段；计划优先在 BOSS 直聘投递 AI 应用开发工程师 / AI Agent 开发工程师岗位。
 - 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和真实产品 UI 素材接入；Evidence Trace 使用中文界面文案，全部真实项目图片支持可访问的点击放大，两条 Case Study 首屏提供“返回首页”；KnowledgeFlow 首页使用完成工作台主图，Case Study 依次展示空态、文档列表、SSE 流式生成、来源快照和刷新恢复。
+- 线上作品集部署在 `liu-yi-portfolio-iccbna3v.edgeone.cool`；2026-08-14 实测裸域名返回 HTTP 401，当前投递必须使用用户提供的完整 EdgeOne 签名链接并保留 `eo_token` / `eo_time` 查询参数。项目记忆不保存具体 token 值。
+- 正式简历：`D:\Codex\Projects\portfolio-implementation\public\resume\liu-yi-ai-application-resume.pdf`。
+- AI 简历 V2 Candidate 1 与 Candidate 2 均已有独立可编辑生成链，源码位于 `D:\Codex\Projects\resume-it-procurement-2026-08-19\src\`；Candidate 2 输出为 `D:\Codex\Outputs\resume-ai-v2-candidate-2\liu-yi-ai-application-resume-v2-candidate-2.pdf`。当前正式 V1 与 Candidate 1 均未替换、未覆盖、未部署。
+- 产品/开发助理（AI 应用方向）定向版简历已生成，输出为 `D:\Codex\Outputs\resume-ai-product-assistant-2026-09-15\刘燚-产品开发助理-AI应用方向-优化简历.pdf`；它以 Candidate 2 为基线，仅调整顶部职位定位、顶部简介、ProductStudio 项目简介及项目顺序（ProductStudio → 析数 → KnowledgeFlow AI），未覆盖原附件或既有版本。
+- Candidate 2 同目录另有可编辑 Word 版 `liu-yi-ai-application-resume-v2-candidate-2.docx`，生成入口为 `src\build_resume_v2_candidate_2_docx.py`；它使用原生可编辑段落、真正的项目 bullet、5 个外部超链接和嵌入证件照，并非整页 PDF 图片。
 - Git：Phase 0 基线位于 `master`；开发在 `codex/portfolio-implementation` 隔离分支和 worktree 中进行。
 
 ## 已确认决策
@@ -47,7 +52,14 @@
 
 ## 待办与下一步
 
-- 后续发布前仍需真实简历和分享图；头像仍为可选资产。析数与 KnowledgeFlow 素材均已接入，未访问私人数据文件或现有知识库正文。
+- 作品集和正式简历已具备投递条件；当前重点是按岗位 JD 微调 BOSS 招呼语与简历关键词，并持续记录投递反馈。分享图仍可作为后续可选优化，不阻塞投递。
+- 当前关注的一类 JD 强调 AI 工具活化、业务流程自动化、飞书多维表格和 RPA，并要求用 1–3 个实际案例分别说明业务问题、AI/自动化工具、本人完成的工作和效率结果。现有项目可证明的相关能力包括 DeepSeek API、LangGraph / LangChain、Prompt 与上下文约束、Tool Calling、Python / FastAPI / API、pandas 数据处理、Codex / Claude Code 辅助开发以及自动化测试验收；目前没有飞书多维表格、n8n、Make、Zapier、影刀 RPA 或 Selenium 的项目证据，也没有企业上线前后的真实工时基线。投递时应以“析数”和 KnowledgeFlow 两个案例回答，量化自动覆盖环节与测试验收结果，不得虚构节省工时或熟练实战经历。
+- 首次招聘沟通反馈中，对方明确询问“多 Agent 落地产品经验”和在线体验链接。当前“析数”属于单 Agent / 受控工作流调用多个工具，KnowledgeFlow 属于模块化 RAG，均不得包装成多 Agent；目前也没有公开可操作的多 Agent 在线 Demo。回复应如实说明边界，提供作品集 Case Study 与 GitHub 源码，并强调已有 Agent 工作流、状态管理、工具调用、上下文约束和测试验收经验可迁移到多 Agent 架构。
+- 另一项招聘沟通询问能否从零搭建采购、外贸发货、库存和部分财务的一体化业务系统。当前没有完全同类的已上线项目，可明确表达具备从需求拆解、领域与数据建模、API、前后端、持久化、异常恢复到测试验收的完整工程能力，并建议按采购入库、销售/发货、库存台账、应收应付/费用/对账分期交付 MVP；财务范围必须限定为业务财务，不得声称具备总账、税务或法定会计系统实战。
+- 同一招聘方进一步给出“智能排柜与供应链跟单自动化”复杂模块：基于生产进度、国内/海外库存、客户订单与交期、船期、SKU 体积/重量等信息生成多个 40HQ 排柜方案，并处理生产延期和客户临时加急后的动态重排。该问题的核心是受硬/软约束的组合优化、滚动重规划、计划版本/差异、人工审批和审计，不应由 LLM 自由决定；AI 适合作为自然语言交互、异常信息抽取和方案解释层。应明确区分“订单行/箱数分配到哪个柜”和“纸箱在柜内如何三维摆放”：前者可先用体积、重量、可用日期和交期做 CP-SAT/MILP MVP，后者还需要朝向、堆叠、承重、托盘等数据。建议从模块化单体、关系数据库、独立求解模块、库存预留、计划版本、差异审批和审计日志起步。当前没有集装箱装载、供应链 ERP 或运筹优化的生产项目经验，面试时应提出 OR-Tools CP-SAT/MILP 或启发式求解器方向与分阶段 MVP，同时明确同领域经验边界。
+- 用户已收到杭州长决科技有限公司的现场面试邀请；邀请卡使用 LATIC 品牌标识。公开页面显示 LATIC 业务覆盖中国与拉美之间的通信设备、光纤/FTTH、数字电视、IPTV、跨境采购进口及区域库存分销，但暂未找到可权威确认“杭州长决科技有限公司”与公开 LATIC 主体之间工商关系的页面，面试时只能将其作为品牌业务理解，不能表述为已确认的股权或法律主体事实。
+- 针对该面试，建议将优势定位为“模型理解 + 确定性业务规则/求解 + 全栈工程闭环”，并继续如实说明没有同类 ERP/智能排柜生产上线经验。通用业务回答顺序为：业务目标与责任人 → 数据来源/口径 → 硬约束 → 软目标 → 候选方案与解释 → 人工审批/正式落库 → 指标验收。智能排柜“决策闭环全景图”已按用户批准方向制作，SVG 与 1920×1350 PNG 位于 `D:\Codex\Outputs\interview-prep-2026-08-18\`；2026-08-17 已验证 SVG XML、关键文案、无外部图片依赖和 PNG 尺寸，并完成视觉检查，无裁切、重叠或乱码。
+- 面试双页速查图已完成，位于 `D:\Codex\Outputs\interview-prep-2026-08-18\cheat-sheets\`：第1页为“ERP与智能排柜”，第2页为“自我介绍与面试问答”，每页均交付 1800×2546 PNG 与可缩放 SVG。内容合并了用户截图和已确认面试材料，并补充 ERP 定义、七步记忆法、现场查看提纲话术及诚信边界；已完成 XML、关键文案、无外部依赖、PNG 尺寸和视觉检查，第2页深色卡片对比度问题已修复。
 - Lighthouse 已按用户授权以 `13.4.1` 本地 devDependency 安装并完成 3 个 URL 的 Desktop / Mobile 各 3 次 production preview 审计；原始结果与中位数位于 `docs/verification/portfolio.md`。
 - Visual Refinement Round 2 已修复 Hero 与 Selected Work 中文断行，并提高析数、KnowledgeFlow 中段的真实信息密度；下一步仅在用户提供真实资产后进入 Asset Integration，当前不得 merge、push 或部署。
 
@@ -69,6 +81,11 @@
 - 2026-08-13 KnowledgeFlow 最终离线验证：源项目安全模式 Release Check 17 项、Frontend 51/51、Node 回归 1/1、production build、Fake Provider 浏览器全栈均通过；作品集 typecheck、lint、Vitest 27/27、Playwright 22/22、production build 通过；1440×900、1024×768、390×844 的首页及 Case Study 均无溢出、破图、占位、敏感文本或错误 Full-stack 声明。
 - 2026-08-13 项目图片阅读增强：typecheck、lint、Vitest 30/30、系统 Chrome Playwright 23/23、production build 均通过；首页、析数与 KnowledgeFlow 在 1440×900、1024×768、390×844 均无横向溢出，三档图片预览完整显示。预览支持关闭按钮、遮罩、Escape、焦点循环与恢复、可重入背景 inert 和滚动锁定；占位图保持不可交互。
 - 2026-08-13 能力分组标题中文化：首页定向单测、typecheck、lint 与 production build 通过；技术栈英文专名未修改。
+- 2026-08-19 IT 采购定向简历：`D:\Codex\Outputs\resume-it-procurement-2026-08-19\刘燚_IT采购_AI工具应用_简历.pdf` 已交付；销售实习表述真实，无供应商、合同或订单经验声明；一页 A4，文本提取与视觉 QA 均通过。
+- 2026-08-28 AI 简历 V2 Candidate 1：A4 单页，主正文/项目 bullet 最小字号 8.5 pt、行高 13.0 pt，底部安全边距 97.0 pt（34.22 mm），三张项目卡和 8 条 bullet 无自动检测重叠，证件照比例误差 0，保留邮箱、个人 GitHub、析数 GitHub、KnowledgeFlow GitHub 与作品集共 5 个 URI；Candidate SHA-256 为 `B8E4E9D88F7778726DEB9A885611E2F82FDC9002979E74895BD97FA864477F3A`，V1 基准 `BEF559C8CF3F5209A13B0B905AAD37038398C083654F04D64EC377B38381EBF1` 未变化。
+- 2026-08-28 AI 简历 V2 Candidate 2：仅按用户要求修改三处中英文措辞，将项目 bullet 从 8.5 pt / 13.0 pt 提升至 9.0 pt / 13.5 pt，并将技术能力行高从 13.0 pt 微调至 13.3 pt；保持 A4 单页、原左右边距、三项目结构、蓝白风格、证件照与 5 个 URI。实测底部安全边距 87.2 pt（30.76 mm）、文字重叠 0、证件照比例误差 0，216 DPI 整页视觉检查无截断、覆盖或乱码；Candidate 2 SHA-256 为 `5B0117B8CC3B4C5E22504BFC408A2D86CF20B352EA008CAA129F619CA6489873`，V1 与 Candidate 1 哈希均未变化。Candidate 2 定向测试 3/3 通过，完整测试为 14 通过、5 失败；5 项失败仍仅因旧测试硬编码的外部源 PDF 不存在，未修改旧测试或伪造 fixture。按要求停止，不自行进入 Candidate 3。
+- 2026-08-28 Candidate 2 Word 版：Microsoft Word 原生渲染为严格 A4 单页，证件照、三项目卡、中文字体、5 个超链接和正文均正常；首次渲染发现并修复图片段落固定行高导致的裁切及 GitHub 链接拆行。最终 DOCX 结构测试 1/1 通过，SHA-256 为 `31E725AE38F07CFA8B1AF2CC2CCE6FD770404C4A3B1A348AF34F3874C694C63C`。
+- 2026-09-15 产品/开发助理（AI 应用方向）定向版：附件 SHA-256 与 Candidate 2 一致；新 PDF 为 A4 单页，正文最小字号 9.0 pt，底部安全边距 87.2 pt，文本重叠 0，保留证件照和 5 个 URI；216 DPI 整页视觉检查无裁切、覆盖或乱码，内容与布局直接校验 2/2 通过。新 PDF SHA-256 为 `38F70FF7EF279C5782C0A57D35074D8D29B7BADB47587F7710882F37861A8A61`。
 
 ## 变更记录
 
@@ -93,3 +110,4 @@
 - 2026-08-13：完成 KnowledgeFlow 初版 Fake Provider 素材自动化后，用户授权真实 DeepSeek 复验。真实验收修正两个仅影响捕获自动化的同步问题：首个空 metadata chunk 不再触发截图延迟，第二轮完成等待绑定第 2 个回答卡；正式产品语义未改变。最终六张素材整组替换为同一次成功真实 Provider 会话，恢复截图只声明当前标签页 `sessionStorage` 刷新恢复，不扩大为长期记忆或跨设备同步。
 - 2026-08-13：完成项目图片阅读增强。首页 Evidence Trace 改为中文工程语义；复用 `ProjectScreenshot` 为首页两张主图与两条 Case Study 共十张截图提供同一可访问预览；两条 Case Study 共用页首返回入口。未生成或改动任何项目素材，未改变项目真实性文案和页面信息结构。
 - 2026-08-13：按用户反馈将首页四个能力分组标题调整为“AI 应用系统”“RAG 与数据处理”“后端与可靠性”“产品界面”，下方技术栈继续使用英文专名。
+- 2026-08-14：用户确认作品集网站与简历已完成并进入 BOSS 直聘投递阶段；通用招呼语定位为“身份 + 两项代表项目 + 工程闭环 + 沟通意愿”。线上作品集裸域名需要授权，投递时必须保留用户提供的完整 EdgeOne 签名参数。
