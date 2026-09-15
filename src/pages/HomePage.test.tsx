@@ -12,11 +12,14 @@ it('presents the approved home narrative and truthful project evidence in order'
   const sections = within(main).getAllByRole('region').map((section) => section.id)
   expect(sections).toEqual(['hero', 'projects', 'principles', 'capabilities', 'about'])
 
-  expect(screen.getByRole('heading', { level: 2, name: '两个项目，一条共同原则。模型处理不确定性，程序保证确定性。' })).toBeVisible()
+  expect(screen.getByRole('heading', { level: 2, name: '三个项目，一条共同原则。模型处理不确定性，程序保证确定性。' })).toBeVisible()
   expect(screen.getByText('模型处理不确定性，')).toBeVisible()
   expect(screen.getByText('程序保证确定性。')).toBeVisible()
   expect(screen.getByRole('link', { name: /查看析数 Case Study/ })).toHaveAttribute('href', '/projects/xishu')
   expect(screen.getByRole('link', { name: /查看.*KnowledgeFlow AI.*Case Study/ })).toHaveAttribute('href', '/projects/knowledgeflow')
+  const productStudioLink = screen.getByRole('link', { name: /查看ProductStudio Case Study/ })
+  expect(productStudioLink).toHaveAttribute('href', '/projects/productstudio')
+  expect(within(productStudioLink.closest('article') as HTMLElement).queryByRole('link', { name: 'GitHub' })).not.toBeInTheDocument()
   expect(screen.getByText('183 / 183 Backend Tests')).toBeVisible()
   expect(screen.getByText('59 / 59 Frontend Tests')).toBeVisible()
   expect(screen.getByText(/v0.2.0 Candidate/)).toBeVisible()
@@ -25,6 +28,7 @@ it('presents the approved home narrative and truthful project evidence in order'
   expect(screen.queryByText('REAL DEEPSEEK FULL-STACK / VERIFIED')).not.toBeInTheDocument()
   expect(screen.getByRole('img', { name: '析数 工作台首页' })).toBeInTheDocument()
   expect(screen.getByRole('img', { name: 'KnowledgeFlow AI 工作台首页' })).toBeInTheDocument()
+  expect(screen.getByRole('img', { name: 'ProductStudio 工作台首页' })).toBeInTheDocument()
 
   for (const title of ['AI 应用系统', 'RAG 与数据处理', '后端与可靠性', '产品界面']) {
     expect(screen.getByRole('heading', { level: 3, name: title })).toBeVisible()

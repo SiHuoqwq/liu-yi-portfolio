@@ -616,6 +616,8 @@ img {
 
 .project-stack__foreground {
   position: relative;
+  display: grid;
+  gap: 3rem;
   margin-top: 30rem;
 }
 

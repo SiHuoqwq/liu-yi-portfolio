@@ -23,6 +23,10 @@ export const assetManifest = {
   knowledgeflowStreaming: { path: '/images/knowledgeflow/streaming-chat.webp', available: true, requiredForRelease: true, width: 1600, height: 1000 },
   knowledgeflowSource: { path: '/images/knowledgeflow/source-snapshot.webp', available: true, requiredForRelease: true, width: 1600, height: 1000 },
   knowledgeflowRestore: { path: '/images/knowledgeflow/session-restore.webp', available: true, requiredForRelease: true, width: 1600, height: 1000 },
+  productstudioWorkbench: { path: '/images/productstudio/01_workbench_overview.png', available: true, requiredForRelease: true, width: 1440, height: 900 },
+  productstudioCreativeFlow: { path: '/images/productstudio/02_creative_flow.png', available: true, requiredForRelease: true, width: 1224, height: 524 },
+  productstudioGenerationQa: { path: '/images/productstudio/03_generation_result_qa.png', available: true, requiredForRelease: true, width: 1224, height: 923 },
+  productstudioIsolation: { path: '/images/productstudio/04_product_context_isolation.png', available: true, requiredForRelease: true, width: 1440, height: 900 },
   favicon: { path: '/favicon.svg', available: true, requiredForRelease: true },
   shareImage: { path: '/images/share/portfolio.webp', available: false, requiredForRelease: true },
 } as const satisfies Record<string, AssetRecord>

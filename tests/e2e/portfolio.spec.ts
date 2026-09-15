@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-test('presents the homepage and routes through both evidence case studies', async ({ page }) => {
+test('presents the homepage and routes through all three evidence case studies', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/')
   await expect(page).toHaveTitle('刘燚｜AI 应用开发工程师与 AI Agent 开发作品集')
@@ -21,6 +21,14 @@ test('presents the homepage and routes through both evidence case studies', asyn
 
   await page.getByRole('link', { name: '返回首页', exact: true }).click()
   await expect(page).toHaveURL(/\/$/)
+
+  await page.getByRole('link', { name: '查看ProductStudio Case Study' }).click()
+  await expect(page).toHaveURL(/\/projects\/productstudio$/)
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('ProductStudio')
+  await expect(page).toHaveTitle('ProductStudio｜AI 电商视觉内容生成工作台 Case Study')
+  const productStudioOverview = page.getByRole('img', { name: 'ProductStudio 工作台全貌' })
+  await expect(productStudioOverview).toBeVisible()
+  await expect.poll(() => productStudioOverview.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0)
 })
 
 test('enlarges real project images and restores focus after Escape', async ({ page }) => {
@@ -83,7 +91,7 @@ test('404 keeps a working route back to the portfolio', async ({ page }) => {
   await expect(page).toHaveURL(/\/$/)
 })
 
-for (const route of ['/', '/projects/xishu', '/projects/knowledgeflow', '/missing-evidence']) {
+for (const route of ['/', '/projects/xishu', '/projects/knowledgeflow', '/projects/productstudio', '/missing-evidence']) {
   test(`${route} has one h1 and a continuous heading outline`, async ({ page }) => {
     await page.goto(route)
     await expect(page.locator('h1')).toHaveCount(1)

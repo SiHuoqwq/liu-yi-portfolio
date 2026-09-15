@@ -5,7 +5,7 @@ export type TraceStepRecord = {
 }
 
 export type ProjectRecord = {
-  id: 'xishu' | 'knowledgeflow'
+  id: 'xishu' | 'knowledgeflow' | 'productstudio'
   index: string
   name: string
   title: string
@@ -19,7 +19,7 @@ export type ProjectRecord = {
   capabilities: readonly { label: string; detail: string }[]
   metrics: readonly string[]
   route: string
-  github: string
+  github?: string
   imagePath: string
   flow?: readonly string[]
 }
@@ -79,4 +79,27 @@ export const knowledgeFlowProject: ProjectRecord = {
   flow: ['DOCUMENT', 'CHUNK', 'EMBEDDING', 'RETRIEVAL', 'CONTEXT', 'SOURCE'],
 }
 
-export const projects = [xishuProject, knowledgeFlowProject] as const
+export const productStudioProject: ProjectRecord = {
+  id: 'productstudio',
+  index: '03',
+  name: 'ProductStudio',
+  title: 'AI 电商视觉内容生成工作台',
+  category: 'AI VISUAL WORKFLOW',
+  version: 'v0.2.0-job-demo',
+  status: 'FROZEN JOB DEMO',
+  statusTone: 'warning',
+  summary: '以商品事实约束创意，由用户明确采用方案，并将本地生成、质量确认与任务恢复串成闭环。',
+  problem: '直接从 Prompt 进入模型，会混合商品事实、创意表达与执行参数，难以审核和恢复。',
+  solution: '分离 Product Truth、创意提案、显式采用与执行状态，让结果绑定具体商品、任务和 QA 记录。',
+  capabilities: [
+    { label: 'PRODUCT TRUTH', detail: '已确认事实、未知信息与参考依据分层' },
+    { label: 'EXPLICIT ADOPTION', detail: 'Proposed、Selected、Approved、Generated 状态分离' },
+    { label: 'PRODUCT ISOLATION', detail: '按商品、输出类型与上下文隔离状态' },
+  ],
+  metrics: ['REAL CUI / QWEN RESULT', 'FIDELITY + HUMAN QA', 'HISTORY / RECOVERY', 'v0.2.0 Job Demo'],
+  route: '/projects/productstudio',
+  imagePath: '/images/productstudio/01_workbench_overview.png',
+  flow: ['TRUTH', 'DIRECTION', 'ADOPTION', 'GENERATION', 'QA', 'RECOVERY'],
+}
+
+export const projects = [xishuProject, knowledgeFlowProject, productStudioProject] as const

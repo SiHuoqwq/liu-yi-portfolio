@@ -6,7 +6,7 @@ export function ProjectLinks({ project }: { project: ProjectRecord }) {
   return (
     <div className="project-links">
       <Link className="button button--primary" to={project.route}>查看{project.name} Case Study</Link>
-      <TextLink href={project.github}>GitHub</TextLink>
+      {project.github ? <TextLink href={project.github}>GitHub</TextLink> : null}
     </div>
   )
 }

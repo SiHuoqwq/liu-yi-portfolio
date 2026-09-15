@@ -27,3 +27,24 @@ it('uses fully visible static trace and project flow when reduced motion is requ
     expect(item).not.toHaveStyle({ opacity: 0 })
   }
 })
+
+it('keeps every project visible in the desktop motion stack', () => {
+  window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+    matches: query.includes('min-width: 1024px'),
+    media: query,
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+  }))
+
+  render(
+    <ReducedMotionProvider>
+      <MemoryRouter>
+        <FeaturedProjectStack />
+      </MemoryRouter>
+    </ReducedMotionProvider>,
+  )
+
+  expect(screen.getByText('可信 AI 数据分析工作台')).toBeVisible()
+  expect(screen.getByText('本地模块化 RAG 知识库')).toBeVisible()
+  expect(screen.getByText('AI 电商视觉内容生成工作台')).toBeVisible()
+})

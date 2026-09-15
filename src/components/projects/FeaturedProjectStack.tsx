@@ -21,7 +21,9 @@ function AnimatedProjectStack() {
       <motion.div className="project-stack__sticky" style={{ scale, y, opacity }}>
         <FeaturedProjectPanel project={projects[0]} />
       </motion.div>
-      <div className="project-stack__foreground"><FeaturedProjectPanel project={projects[1]} /></div>
+      <div className="project-stack__foreground">
+        {projects.slice(1).map((project) => <FeaturedProjectPanel key={project.id} project={project} />)}
+      </div>
     </div>
   )
 }

@@ -15,7 +15,7 @@ type SeoOptions = {
 const routeSeo: Record<string, SeoRecord> = {
   '/': {
     title: '刘燚｜AI 应用开发工程师与 AI Agent 开发作品集',
-    description: '展示析数 AI 数据分析工作台与 KnowledgeFlow AI RAG 知识库，涵盖 Agent、RAG、FastAPI、React、SSE、测试与发布实践。',
+    description: '展示析数 AI 数据分析工作台、KnowledgeFlow AI RAG 知识库与 ProductStudio AI 电商视觉内容生成工作台，涵盖受控工作流、RAG、React、测试与发布实践。',
   },
   '/projects/xishu': {
     title: '析数｜可信 AI 数据分析工作台 Case Study',
@@ -24,6 +24,10 @@ const routeSeo: Record<string, SeoRecord> = {
   '/projects/knowledgeflow': {
     title: 'KnowledgeFlow AI｜本地模块化 RAG Case Study',
     description: 'KnowledgeFlow AI 项目案例：以模块化检索、上下文预算、固定拒答与来源快照构建可复核的本地 RAG 知识库。',
+  },
+  '/projects/productstudio': {
+    title: 'ProductStudio｜AI 电商视觉内容生成工作台 Case Study',
+    description: 'ProductStudio 项目案例：以 Product Truth 约束创意，通过显式采用、本地 CUI 生成、Fidelity QA 与任务恢复构建可解释的电商视觉工作流。',
   },
 }
 

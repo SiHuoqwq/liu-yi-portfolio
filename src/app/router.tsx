@@ -27,6 +27,13 @@ export const routeDefinitions: RouteObject[] = [
         },
       },
       {
+        path: '/projects/productstudio',
+        lazy: async () => {
+          const { ProductStudioPage } = await import('../pages/ProductStudioPage')
+          return { Component: ProductStudioPage }
+        },
+      },
+      {
         path: '*',
         lazy: async () => {
           const { NotFoundPage } = await import('../pages/NotFoundPage')

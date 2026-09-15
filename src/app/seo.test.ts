@@ -6,6 +6,7 @@ describe('route SEO', () => {
     ['/', '刘燚｜AI 应用开发工程师与 AI Agent 开发作品集'],
     ['/projects/xishu', '析数｜可信 AI 数据分析工作台 Case Study'],
     ['/projects/knowledgeflow', 'KnowledgeFlow AI｜本地模块化 RAG Case Study'],
+    ['/projects/productstudio', 'ProductStudio｜AI 电商视觉内容生成工作台 Case Study'],
   ])('provides independent metadata for %s', (path, expectedTitle) => {
     const seo = getRouteSeo(path)
     expect(seo.title).toBe(expectedTitle)
