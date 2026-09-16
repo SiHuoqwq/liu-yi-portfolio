@@ -38,6 +38,7 @@ it('publishes the ProductStudio handoff assets with their intrinsic dimensions',
     ['productstudioCreativeFlow', '/images/productstudio/02_creative_flow.png', 1224, 524],
     ['productstudioGenerationQa', '/images/productstudio/03_generation_result_qa.png', 1224, 923],
     ['productstudioIsolation', '/images/productstudio/04_product_context_isolation.png', 1440, 900],
+    ['productstudioNeutralWorkspace', '/images/productstudio/05_neutral_workspace.png', 1440, 900],
   ] as const
 
   for (const [key, path, width, height] of expected) {

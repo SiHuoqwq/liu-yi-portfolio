@@ -96,7 +96,7 @@ export const productStudioProject: ProjectRecord = {
     { label: 'EXPLICIT ADOPTION', detail: 'Proposed、Selected、Approved、Generated 状态分离' },
     { label: 'PRODUCT ISOLATION', detail: '按商品、输出类型与上下文隔离状态' },
   ],
-  metrics: ['REAL CUI / QWEN RESULT', 'FIDELITY + HUMAN QA', 'HISTORY / RECOVERY', 'v0.2.0 Job Demo'],
+  metrics: ['REAL CUI / QWEN RESULT', 'Fidelity QA + Manual Confirmation', 'HISTORY / RECOVERY', 'v0.2.0 Job Demo'],
   route: '/projects/productstudio',
   imagePath: '/images/productstudio/01_workbench_overview.png',
   flow: ['TRUTH', 'DIRECTION', 'ADOPTION', 'GENERATION', 'QA', 'RECOVERY'],

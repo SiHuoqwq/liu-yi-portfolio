@@ -27,6 +27,7 @@ export const assetManifest = {
   productstudioCreativeFlow: { path: '/images/productstudio/02_creative_flow.png', available: true, requiredForRelease: true, width: 1224, height: 524 },
   productstudioGenerationQa: { path: '/images/productstudio/03_generation_result_qa.png', available: true, requiredForRelease: true, width: 1224, height: 923 },
   productstudioIsolation: { path: '/images/productstudio/04_product_context_isolation.png', available: true, requiredForRelease: true, width: 1440, height: 900 },
+  productstudioNeutralWorkspace: { path: '/images/productstudio/05_neutral_workspace.png', available: true, requiredForRelease: true, width: 1440, height: 900 },
   favicon: { path: '/favicon.svg', available: true, requiredForRelease: true },
   shareImage: { path: '/images/share/portfolio.webp', available: false, requiredForRelease: true },
 } as const satisfies Record<string, AssetRecord>

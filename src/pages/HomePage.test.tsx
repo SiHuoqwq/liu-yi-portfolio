@@ -29,6 +29,8 @@ it('presents the approved home narrative and truthful project evidence in order'
   expect(screen.getByRole('img', { name: '析数 工作台首页' })).toBeInTheDocument()
   expect(screen.getByRole('img', { name: 'KnowledgeFlow AI 工作台首页' })).toBeInTheDocument()
   expect(screen.getByRole('img', { name: 'ProductStudio 工作台首页' })).toBeInTheDocument()
+  expect(screen.getByText('Fidelity QA + Manual Confirmation')).toBeVisible()
+  expect(screen.queryByText(/Human QA|Human Approved/)).not.toBeInTheDocument()
 
   for (const title of ['AI 应用系统', 'RAG 与数据处理', '后端与可靠性', '产品界面']) {
     expect(screen.getByRole('heading', { level: 3, name: title })).toBeVisible()

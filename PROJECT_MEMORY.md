@@ -12,6 +12,7 @@
 - 仓库用途：个人作品集网站。
 - 当前阶段：作品集网站与 AI 应用开发简历均已完成，现已进入求职投递阶段；计划优先在 BOSS 直聘投递 AI 应用开发工程师 / AI Agent 开发工程师岗位。
 - 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和真实产品 UI 素材接入；Evidence Trace 使用中文界面文案，全部真实项目图片支持可访问的点击放大，两条 Case Study 首屏提供“返回首页”；KnowledgeFlow 首页使用完成工作台主图，Case Study 依次展示空态、文档列表、SSE 流式生成、来源快照和刷新恢复。
+- ProductStudio Portfolio Phase 1 已在 `codex/productstudio-portfolio` 分支提交为 `578b448fee246b7f427fc9bd5dd47e60688261aa`：第三张首页项目卡、通用三项目动效栈、`/projects/productstudio` 路由及四张正式 PNG 素材已接入。Phase 2-A 九段 Case Study、Phase 2-A.5 QA 真实性修正与 Phase 2-B.1 专属 Hero 均已完成，并由 `feat: refine ProductStudio portfolio case study` checkpoint 固化；QA 口径为 `Fidelity QA + Manual Confirmation`，不宣称 Human QA Pipeline、Human Approved 或独立 Human QA 状态机；Hero 主图使用未选择具体商品的 `05_neutral_workspace.png`，未修改其他 Case Study。
 - 线上作品集部署在 `liu-yi-portfolio-iccbna3v.edgeone.cool`；2026-08-14 实测裸域名返回 HTTP 401，当前投递必须使用用户提供的完整 EdgeOne 签名链接并保留 `eo_token` / `eo_time` 查询参数。项目记忆不保存具体 token 值。
 - 正式简历：`D:\Codex\Projects\portfolio-implementation\public\resume\liu-yi-ai-application-resume.pdf`。
 - AI 简历 V2 Candidate 1 与 Candidate 2 均已有独立可编辑生成链，源码位于 `D:\Codex\Projects\resume-it-procurement-2026-08-19\src\`；Candidate 2 输出为 `D:\Codex\Outputs\resume-ai-v2-candidate-2\liu-yi-ai-application-resume-v2-candidate-2.pdf`。当前正式 V1 与 Candidate 1 均未替换、未覆盖、未部署。
@@ -49,6 +50,9 @@
 - 项目图片阅读增强规格：`docs/superpowers/specs/2026-08-13-project-image-viewer-design.md`
 - 项目图片阅读增强计划：`docs/superpowers/plans/2026-08-13-project-image-viewer.md`
 - 项目图片阅读增强视觉检查：`docs/visual-review-image-viewer/`
+- ProductStudio 正式 handoff：`C:\Users\35345\Desktop\ProductStudio-Portfolio-Handoff\ProductStudio-Portfolio-Handoff\`
+- ProductStudio Phase 1 页面：`src/pages/ProductStudioPage.tsx`
+- ProductStudio 正式截图：`public/images/productstudio/`
 
 ## 待办与下一步
 
@@ -62,6 +66,7 @@
 - 面试双页速查图已完成，位于 `D:\Codex\Outputs\interview-prep-2026-08-18\cheat-sheets\`：第1页为“ERP与智能排柜”，第2页为“自我介绍与面试问答”，每页均交付 1800×2546 PNG 与可缩放 SVG。内容合并了用户截图和已确认面试材料，并补充 ERP 定义、七步记忆法、现场查看提纲话术及诚信边界；已完成 XML、关键文案、无外部依赖、PNG 尺寸和视觉检查，第2页深色卡片对比度问题已修复。
 - Lighthouse 已按用户授权以 `13.4.1` 本地 devDependency 安装并完成 3 个 URL 的 Desktop / Mobile 各 3 次 production preview 审计；原始结果与中位数位于 `docs/verification/portfolio.md`。
 - Visual Refinement Round 2 已修复 Hero 与 Selected Work 中文断行，并提高析数、KnowledgeFlow 中段的真实信息密度；下一步仅在用户提供真实资产后进入 Asset Integration，当前不得 merge、push 或部署。
+- ProductStudio Phase 2-A、2-A.5 与 2-B.1 已完成 checkpoint；当前不得 push、merge，也不自行开始 Phase 2-B.2。下一步等待用户指示。
 
 ## 最近验证
 
@@ -86,6 +91,11 @@
 - 2026-08-28 AI 简历 V2 Candidate 2：仅按用户要求修改三处中英文措辞，将项目 bullet 从 8.5 pt / 13.0 pt 提升至 9.0 pt / 13.5 pt，并将技术能力行高从 13.0 pt 微调至 13.3 pt；保持 A4 单页、原左右边距、三项目结构、蓝白风格、证件照与 5 个 URI。实测底部安全边距 87.2 pt（30.76 mm）、文字重叠 0、证件照比例误差 0，216 DPI 整页视觉检查无截断、覆盖或乱码；Candidate 2 SHA-256 为 `5B0117B8CC3B4C5E22504BFC408A2D86CF20B352EA008CAA129F619CA6489873`，V1 与 Candidate 1 哈希均未变化。Candidate 2 定向测试 3/3 通过，完整测试为 14 通过、5 失败；5 项失败仍仅因旧测试硬编码的外部源 PDF 不存在，未修改旧测试或伪造 fixture。按要求停止，不自行进入 Candidate 3。
 - 2026-08-28 Candidate 2 Word 版：Microsoft Word 原生渲染为严格 A4 单页，证件照、三项目卡、中文字体、5 个超链接和正文均正常；首次渲染发现并修复图片段落固定行高导致的裁切及 GitHub 链接拆行。最终 DOCX 结构测试 1/1 通过，SHA-256 为 `31E725AE38F07CFA8B1AF2CC2CCE6FD770404C4A3B1A348AF34F3874C694C63C`。
 - 2026-09-15 产品/开发助理（AI 应用方向）定向版：附件 SHA-256 与 Candidate 2 一致；新 PDF 为 A4 单页，正文最小字号 9.0 pt，底部安全边距 87.2 pt，文本重叠 0，保留证件照和 5 个 URI；216 DPI 整页视觉检查无裁切、覆盖或乱码，内容与布局直接校验 2/2 通过。新 PDF SHA-256 为 `38F70FF7EF279C5782C0A57D35074D8D29B7BADB47587F7710882F37861A8A61`。
+- 2026-09-15 ProductStudio Portfolio Phase 1：相关 Vitest 13/13、typecheck、production build 与最小 Playwright browser smoke 1/1 通过；commit 前已将 motion E2E 的两项目旧断言更新为三项目，并在 1440×1200 sticky 场景逐张验证三张卡可滚动访问、图片可解码、中心无遮挡、无横向溢出及 transform 动效，motion Playwright 3/3 通过；四张导入 PNG 与 handoff 源文件 SHA-256 一致，首页和详情页均无资产占位。
+- 2026-09-16 ProductStudio Portfolio Phase 2-A：九段页面骨架和四个专用证据组件完成；typecheck、相关 Vitest 13/13 与 production build 通过。未修改首页、其他项目页、公共 Case Study 组件或 CSS。
+- 2026-09-16 ProductStudio Portfolio Phase 2-A.5：首页与详情页统一使用 `Fidelity QA + Manual Confirmation`，生成边界为 `Generation Completed ≠ Product Fidelity Confirmed`；typecheck、完整 Vitest 34/34 与 production build 通过，生产源码不存在 Human QA / Human Approved 声明。
+- 2026-09-16 ProductStudio Portfolio Phase 2-B.1：ProductStudio 专属 Hero 在 1440×900 下完整显示标题、定位、价值句、四项技术关键词和 CTA，工作台主图从 y=567 开始，首屏可见 333px（图片高度 44.5%）；390×844 与 320×800 均无横向溢出且主图可解码。typecheck、完整 Vitest 34/34 与 production build 均通过。
+- 2026-09-16 ProductStudio Hero 中性素材接入：`05_neutral_workspace.png` 为可解码 1440×900 PNG，SHA-256 `EBA3D34078BC57FB43706F6A7B17CA4524E7445FD022D946E6CC54928341C41A`；Hero 引用已切换，01–04 原图保持不变。1440×900 下主图首屏露出 333px，渲染与原图宽高比均为 1.6；390×844 无横向溢出，标签与 CTA 均可见。
 
 ## 变更记录
 
@@ -111,3 +121,9 @@
 - 2026-08-13：完成项目图片阅读增强。首页 Evidence Trace 改为中文工程语义；复用 `ProjectScreenshot` 为首页两张主图与两条 Case Study 共十张截图提供同一可访问预览；两条 Case Study 共用页首返回入口。未生成或改动任何项目素材，未改变项目真实性文案和页面信息结构。
 - 2026-08-13：按用户反馈将首页四个能力分组标题调整为“AI 应用系统”“RAG 与数据处理”“后端与可靠性”“产品界面”，下方技术栈继续使用英文专名。
 - 2026-08-14：用户确认作品集网站与简历已完成并进入 BOSS 直聘投递阶段；通用招呼语定位为“身份 + 两项代表项目 + 工程闭环 + 沟通意愿”。线上作品集裸域名需要授权，投递时必须保留用户提供的完整 EdgeOne 签名参数。
+- 2026-09-15：从 `master@c4ed64b` 创建 `codex/productstudio-portfolio`，完成 ProductStudio Portfolio Phase 1 骨架接入并提交为 `578b448fee246b7f427fc9bd5dd47e60688261aa`；保持既有 Evidence Trace 设计与手写 TSX 内容架构，未引入 MDX、CMS 或新依赖，未 push 或 merge。
+- 2026-09-16：完成 ProductStudio Portfolio Phase 2-A 九段 Case Study 骨架与组件边界；主图归入 01 Hero，另外三张图分别只用于 Creative Director、Generation + QA 和 Product Context Isolation；未 commit、push 或 merge。
+- 2026-09-16：完成 ProductStudio Phase 2-A.5 QA 口径修正；未新增 QA 状态模型，未修改公共组件、图片、架构或视觉样式，未 commit、push 或 merge。
+- 2026-09-16：完成 ProductStudio Phase 2-B.1 Hero 优化；新增 ProductStudio 专属首屏组件与作用域样式，保留项目事实、版本和非规模化生产系统边界，未修改通用 `CaseStudyHero`、其他项目页面、图片或公共交互，未 commit、push 或 merge。
+- 2026-09-16：为 Phase 2-B.1 接入中性工作台证据图，仅新增资源、manifest 条目并替换 Hero 图片引用；未修改 Hero 文案、结构、技术标签、CTA、CSS 或响应式布局，未删除或覆盖 01–04 PNG。
+- 2026-09-16：按用户授权创建 Phase 2-A + 2-A.5 + 2-B.1 checkpoint `feat: refine ProductStudio portfolio case study`；提交前 typecheck、完整 Vitest 34/34、production build 与 `git diff --check` 通过，未 push、merge 或开始 Phase 2-B.2。
