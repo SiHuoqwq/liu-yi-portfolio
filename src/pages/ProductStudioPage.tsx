@@ -1,7 +1,6 @@
 import { CaseSection } from '../components/case-study/CaseSection'
 import { CaseStudyNavigation } from '../components/case-study/CaseStudyNavigation'
 import { DecisionComparison } from '../components/case-study/DecisionComparison'
-import { LimitationList } from '../components/case-study/LimitationList'
 import { TechnicalRecord } from '../components/case-study/TechnicalRecord'
 import { AdoptionStateBoundary } from '../components/productstudio/AdoptionStateBoundary'
 import { GenerationEvidenceBinding } from '../components/productstudio/GenerationEvidenceBinding'
@@ -46,42 +45,42 @@ export function ProductStudioPage() {
         <ProjectScreenshot path="/images/productstudio/04_product_context_isolation.png" alt="ProductStudio 商品上下文隔离与恢复" />
       </CaseSection>
 
-      <CaseSection index="07 / 09" title="技术实现" ariaLabel="ProductStudio 已实现技术">
-        <TechnicalRecord items={[
-          ['FRONTEND', 'React + TypeScript'],
-          ['BACKEND', 'Python + FastAPI'],
-          ['AI WORKFLOW', 'Controlled AI Workflow'],
-          ['CREATIVE', 'Deterministic Creative Director Provider · Explicit Adoption · Generation Strategy'],
-          ['GENERATION', 'CUI / ComfyUI · Qwen Image Edit'],
-          ['QUALITY', 'BiRefNet Fidelity Fallback · Fidelity QA · Manual Confirmation'],
-          ['STATE', 'Product Context Isolation · Job-bound Result · History / Recovery'],
-        ]} />
-      </CaseSection>
+      <div className="productstudio-tail productstudio-tail__section--technical">
+        <CaseSection index="07 / 09" title="技术实现" ariaLabel="ProductStudio 已实现技术">
+          <p>工程重点不是堆叠模型，而是让采用策略、生成任务、质量确认与恢复状态保持可追踪。</p>
+          <TechnicalRecord items={[
+            ['CLIENT / API', 'React + TypeScript Workbench · FastAPI Backend'],
+            ['CONTROLLED WORKFLOW', 'Deterministic Creative Director Provider · Explicit Adoption'],
+            ['JOB EXECUTION', 'Generation Strategy → Generation Job → CUI / Qwen Image Edit'],
+            ['FIDELITY GATE', 'BiRefNet Fidelity Fallback · Fidelity QA · Manual Confirmation'],
+            ['STATE RECOVERY', 'Product Context · Job-bound Result · History / Recovery'],
+          ]} />
+        </CaseSection>
+      </div>
 
-      <CaseSection index="08 / 09" title="Current Limitations" ariaLabel="ProductStudio 当前限制">
-        <LimitationList current={[
-          'Creative Director 当前使用确定性 provider，并非 LLM/VLM Agent。',
-          'Multi-reference production flow 未实现。',
-          'Human + Product production flow 未实现。',
-          'Multi-view consistency 未实现。',
-          '运行依赖已配置的本地 CUI 与模型资产，安装和部署尚未产品化。',
-          '尚未建设分布式任务队列、权限、监控与团队协作能力。',
-        ]} />
-      </CaseSection>
+      <div className="productstudio-tail productstudio-tail__section--boundaries">
+        <CaseSection index="08 / 09" title="Current Boundaries" ariaLabel="ProductStudio 当前边界">
+          <p className="mono">CURRENT SCOPE</p>
+          <TechnicalRecord items={[
+            ['PLANNING BOUNDARY', 'Creative planning 当前由 Deterministic Creative Director Provider 驱动；当前不包含 LLM/VLM Creative Director 或自主 Agent 决策。'],
+            ['REFERENCE BOUNDARY', '每个生成任务绑定一个隔离的当前商品上下文；Multi-reference composition、Human + Product composition 与 Multi-view consistency 尚未实现。'],
+            ['DELIVERY BOUNDARY', '当前依赖已配置的本地 CUI 与模型资产；automated installation、distributed queue、permission system 与 production monitoring 尚未产品化。'],
+          ]} />
+        </CaseSection>
+      </div>
 
-      <CaseSection index="09 / 09" title="Roadmap" ariaLabel="ProductStudio Roadmap">
-        <p className="mono">PLANNED / NOT IMPLEMENTED</p>
-        <TechnicalRecord items={[
-          ['PLANNED 01', 'LLM/VLM Creative Director'],
-          ['PLANNED 02', 'Controlled Agent Workflow'],
-          ['PLANNED 03', 'Multi-reference'],
-          ['PLANNED 04', 'Human + Product'],
-          ['PLANNED 05', 'Multi-view'],
-          ['PLANNED 06', 'FLUX Profile'],
-          ['PLANNED 07', 'Advanced model management'],
-        ]} />
-        <CaseStudyNavigation href="/" label="返回首页 / Selected Work" />
-      </CaseSection>
+      <div className="productstudio-tail productstudio-tail__section--roadmap">
+        <CaseSection index="09 / 09" title="Roadmap" ariaLabel="ProductStudio Roadmap">
+          <p className="mono">PLANNED / NOT IMPLEMENTED</p>
+          <TechnicalRecord items={[
+            ['PLANNED 01 · CONTROLLED PLANNING', 'LLM/VLM Creative Director · Controlled Agent Workflow'],
+            ['PLANNED 02 · REFERENCE COMPOSITION', 'Multi-reference · Human + Product'],
+            ['PLANNED 03 · CONSISTENCY', 'Multi-view'],
+            ['PLANNED 04 · MODEL PROFILE', 'FLUX Profile'],
+          ]} />
+          <CaseStudyNavigation href="/" label="返回首页 / Selected Work" />
+        </CaseSection>
+      </div>
     </main>
   )
 }

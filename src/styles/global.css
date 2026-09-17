@@ -986,6 +986,39 @@ img {
   margin: 0.5rem 0 0;
 }
 
+.productstudio-tail .technical-record {
+  margin-top: 2rem;
+}
+
+.productstudio-tail__section--technical .technical-record {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.productstudio-tail__section--technical .technical-record > div:nth-child(-n + 3) {
+  grid-column: span 2;
+}
+
+.productstudio-tail__section--technical .technical-record > div:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.productstudio-tail__section--boundaries .technical-record {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.productstudio-tail__section--boundaries .case-section__body > .mono {
+  color: var(--color-verified);
+}
+
+.productstudio-tail__section--roadmap .technical-record {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.productstudio-tail__section--roadmap .case-section__body > .mono,
+.productstudio-tail__section--roadmap .technical-record dt {
+  color: var(--color-warning);
+}
+
 .case-section {
   padding-block: clamp(5rem, 9vw, 8rem);
   border-bottom: 1px solid var(--color-border);
@@ -1728,6 +1761,62 @@ img {
     padding: 0 0 0.85rem;
     border-right: 0;
     border-bottom: 1px solid var(--color-border);
+  }
+}
+
+@media (max-width: 767px) {
+  .productstudio-tail .case-section {
+    padding-block: 3.25rem;
+  }
+
+  .productstudio-tail .case-section__grid {
+    gap: 1.5rem;
+  }
+
+  .productstudio-tail .case-section__grid > header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+
+  .productstudio-tail .case-section__index {
+    margin: 0;
+  }
+
+  .productstudio-tail .technical-record {
+    grid-template-columns: 1fr;
+    margin-top: 1.5rem;
+  }
+
+  .productstudio-tail .technical-record > div:nth-child(n) {
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: minmax(7.25rem, 0.8fr) minmax(0, 1.5fr);
+    gap: 0.65rem;
+    align-items: start;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .productstudio-tail .technical-record dt {
+    line-height: 1.5;
+  }
+
+  .productstudio-tail .technical-record dd {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .productstudio-tail__section--boundaries .technical-record > div:nth-child(n) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .productstudio-tail .technical-record > div:nth-child(n) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 }
 

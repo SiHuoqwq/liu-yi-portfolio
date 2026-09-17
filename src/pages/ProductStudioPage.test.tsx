@@ -15,7 +15,7 @@ it('presents the nine-part ProductStudio evidence narrative with scoped roadmap 
     'Generation + QA',
     'Product Context Isolation',
     '技术实现',
-    'Current Limitations',
+    'Current Boundaries',
     'Roadmap',
   ])
 
@@ -85,17 +85,52 @@ it('presents the nine-part ProductStudio evidence narrative with scoped roadmap 
   }
 
   const implementation = screen.getByRole('region', { name: 'ProductStudio 已实现技术' })
-  expect(within(implementation).getByText('Controlled AI Workflow')).toBeVisible()
-  expect(within(implementation).getByText(/Deterministic Creative Director Provider/)).toBeVisible()
+  expect(implementation.closest('.productstudio-tail')).toHaveClass('productstudio-tail__section--technical')
+  expect(implementation.querySelectorAll('.technical-record > div')).toHaveLength(5)
+  for (const label of ['CLIENT / API', 'CONTROLLED WORKFLOW', 'JOB EXECUTION', 'FIDELITY GATE', 'STATE RECOVERY']) {
+    expect(within(implementation).getByText(label)).toBeVisible()
+  }
+  for (const fact of [
+    'Deterministic Creative Director Provider',
+    'Explicit Adoption',
+    'Generation Job',
+    'CUI / Qwen Image Edit',
+    'Fidelity QA',
+    'Manual Confirmation',
+    'History / Recovery',
+  ]) {
+    expect(within(implementation).getByText(fact, { exact: false })).toBeVisible()
+  }
   expect(within(implementation).queryByText(
     /LLM\/VLM Creative Director|Controlled Agent Workflow|Multi-reference|Human \+ Product|Multi-view|FLUX Profile|Advanced model management/,
   )).not.toBeInTheDocument()
 
-  const roadmap = screen.getByRole('region', { name: 'ProductStudio Roadmap' })
-  expect(within(roadmap).getByText('PLANNED / NOT IMPLEMENTED')).toBeVisible()
-  for (const item of ['LLM/VLM Creative Director', 'Multi-reference', 'Human + Product', 'Multi-view', 'FLUX Profile']) {
-    expect(within(roadmap).getByText(item)).toBeVisible()
+  const boundaries = screen.getByRole('region', { name: 'ProductStudio 当前边界' })
+  expect(boundaries.closest('.productstudio-tail')).toHaveClass('productstudio-tail__section--boundaries')
+  expect(within(boundaries).getByText('CURRENT SCOPE')).toBeVisible()
+  expect(boundaries.querySelectorAll('.technical-record > div')).toHaveLength(3)
+  for (const boundary of ['PLANNING BOUNDARY', 'REFERENCE BOUNDARY', 'DELIVERY BOUNDARY']) {
+    expect(within(boundaries).getByText(boundary)).toBeVisible()
   }
+  expect(within(boundaries).getByText(/每个生成任务绑定一个隔离的当前商品上下文/)).toBeVisible()
+  expect(within(boundaries).queryByText(/Single-product-only|系统只能保存一个商品|只能支持一个商品/i)).not.toBeInTheDocument()
+
+  const roadmap = screen.getByRole('region', { name: 'ProductStudio Roadmap' })
+  expect(roadmap.closest('.productstudio-tail')).toHaveClass('productstudio-tail__section--roadmap')
+  expect(within(roadmap).getByText('PLANNED / NOT IMPLEMENTED')).toBeVisible()
+  expect(roadmap.querySelectorAll('.technical-record > div')).toHaveLength(4)
+  for (const direction of [
+    'PLANNED 01 · CONTROLLED PLANNING',
+    'PLANNED 02 · REFERENCE COMPOSITION',
+    'PLANNED 03 · CONSISTENCY',
+    'PLANNED 04 · MODEL PROFILE',
+  ]) {
+    expect(within(roadmap).getByText(direction)).toBeVisible()
+  }
+  for (const item of ['LLM/VLM Creative Director', 'Multi-reference', 'Human + Product', 'Multi-view', 'FLUX Profile']) {
+    expect(within(roadmap).getByText(item, { exact: false })).toBeVisible()
+  }
+  expect(screen.queryByText('Advanced model management')).not.toBeInTheDocument()
 
   expect(screen.queryByText(/Autonomous Agent|LLM Agent Creative Director|Multi-agent|Human QA|Human Approved/)).not.toBeInTheDocument()
 })
