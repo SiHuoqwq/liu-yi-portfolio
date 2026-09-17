@@ -29,7 +29,7 @@ export const assetManifest = {
   productstudioIsolation: { path: '/images/productstudio/04_product_context_isolation.png', available: true, requiredForRelease: true, width: 1440, height: 900 },
   productstudioNeutralWorkspace: { path: '/images/productstudio/05_neutral_workspace.png', available: true, requiredForRelease: true, width: 1440, height: 900 },
   favicon: { path: '/favicon.svg', available: true, requiredForRelease: true },
-  shareImage: { path: '/images/share/portfolio.webp', available: false, requiredForRelease: true },
+  shareImage: { path: '/images/share/portfolio.webp', available: true, requiredForRelease: true, width: 1200, height: 630 },
 } as const satisfies Record<string, AssetRecord>
 
 export function getAssetAvailability(path: string) {

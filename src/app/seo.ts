@@ -36,6 +36,8 @@ const fallbackSeo: SeoRecord = {
   description: '请求的页面不存在，请返回刘燚的 AI 应用开发工程师作品集首页。',
 }
 
+const shareImageAlt = '刘燚 AI 应用开发工程师作品集，展示可验证的 AI 应用工程证据'
+
 export function getRouteSeo(pathname: string) {
   return routeSeo[pathname] ?? fallbackSeo
 }
@@ -68,21 +70,37 @@ export function applySeo(pathname: string, options: SeoOptions = {}) {
   setMeta('meta[property="og:title"]', { property: 'og:title' }, seo.title)
   setMeta('meta[property="og:description"]', { property: 'og:description' }, seo.description)
   setMeta('meta[property="og:type"]', { property: 'og:type' }, 'website')
+  setMeta('meta[name="twitter:title"]', { name: 'twitter:title' }, seo.title)
+  setMeta('meta[name="twitter:description"]', { name: 'twitter:description' }, seo.description)
 
   document.head.querySelector('link[rel="canonical"]')?.remove()
   document.head.querySelector('meta[property="og:url"]')?.remove()
   document.head.querySelector('meta[property="og:image"]')?.remove()
+  document.head.querySelector('meta[property="og:image:width"]')?.remove()
+  document.head.querySelector('meta[property="og:image:height"]')?.remove()
+  document.head.querySelector('meta[property="og:image:alt"]')?.remove()
+  document.head.querySelector('meta[name="twitter:card"]')?.remove()
+  document.head.querySelector('meta[name="twitter:image"]')?.remove()
 
-  if (!siteUrl) return
-  const canonicalUrl = new URL(pathname, siteUrl)
-  const canonical = document.createElement('link')
-  canonical.rel = 'canonical'
-  canonical.href = canonicalUrl.href
-  document.head.append(canonical)
-  setMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl.href)
+  if (siteUrl) {
+    const canonicalUrl = new URL(pathname, siteUrl)
+    const canonical = document.createElement('link')
+    canonical.rel = 'canonical'
+    canonical.href = canonicalUrl.href
+    document.head.append(canonical)
+    setMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl.href)
+  }
 
   if (options.shareImageAvailable) {
-    setMeta('meta[property="og:image"]', { property: 'og:image' }, new URL(assetManifest.shareImage.path, siteUrl).href)
+    const shareImageUrl = siteUrl
+      ? new URL(assetManifest.shareImage.path, siteUrl).href
+      : assetManifest.shareImage.path
+    setMeta('meta[property="og:image"]', { property: 'og:image' }, shareImageUrl)
+    setMeta('meta[property="og:image:width"]', { property: 'og:image:width' }, String(assetManifest.shareImage.width))
+    setMeta('meta[property="og:image:height"]', { property: 'og:image:height' }, String(assetManifest.shareImage.height))
+    setMeta('meta[property="og:image:alt"]', { property: 'og:image:alt' }, shareImageAlt)
+    setMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image')
+    setMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, shareImageUrl)
   }
 }
 

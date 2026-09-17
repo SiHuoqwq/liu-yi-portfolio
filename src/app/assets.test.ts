@@ -9,6 +9,17 @@ it('publishes the approved resume at its stable public path', () => {
   expect(getAssetAvailability('/resume/liu-yi-ai-application-resume.pdf')).toBe(true)
 })
 
+it('publishes the social share image with its intrinsic dimensions', () => {
+  expect(assetManifest.shareImage).toMatchObject({
+    path: '/images/share/portfolio.webp',
+    available: true,
+    requiredForRelease: true,
+    width: 1200,
+    height: 630,
+  })
+  expect(getAssetAvailability('/images/share/portfolio.webp')).toBe(true)
+})
+
 it('publishes the selected Xishu evidence assets with their intrinsic dimensions', () => {
   const expected = [
     ['xishuHero', '/images/xishu/hero-workbench.webp', 1600, 760],
