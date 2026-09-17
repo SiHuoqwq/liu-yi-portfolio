@@ -34,7 +34,7 @@ export const heroTraceSteps: readonly TraceStepRecord[] = [
 
 export const xishuProject: ProjectRecord = {
   id: 'xishu',
-  index: '01',
+  index: '02',
   name: '析数',
   title: '可信 AI 数据分析工作台',
   category: 'AI DATA ANALYSIS',
@@ -57,7 +57,7 @@ export const xishuProject: ProjectRecord = {
 
 export const knowledgeFlowProject: ProjectRecord = {
   id: 'knowledgeflow',
-  index: '02',
+  index: '03',
   name: 'KnowledgeFlow AI',
   title: '本地模块化 RAG 知识库',
   category: 'RETRIEVAL SYSTEM',
@@ -81,7 +81,7 @@ export const knowledgeFlowProject: ProjectRecord = {
 
 export const productStudioProject: ProjectRecord = {
   id: 'productstudio',
-  index: '03',
+  index: '01',
   name: 'ProductStudio',
   title: 'AI 电商视觉内容生成工作台',
   category: 'AI VISUAL WORKFLOW',
@@ -102,4 +102,4 @@ export const productStudioProject: ProjectRecord = {
   flow: ['TRUTH', 'DIRECTION', 'ADOPTION', 'GENERATION', 'QA', 'RECOVERY'],
 }
 
-export const projects = [xishuProject, knowledgeFlowProject, productStudioProject] as const
+export const projects = [productStudioProject, xishuProject, knowledgeFlowProject] as const
