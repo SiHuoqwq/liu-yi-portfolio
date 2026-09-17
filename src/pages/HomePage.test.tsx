@@ -26,9 +26,14 @@ it('presents the approved home narrative and truthful project evidence in order'
   expect(screen.getByText('REAL DEEPSEEK REACT E2E / VERIFIED')).toBeVisible()
   expect(screen.getByText('2-TURN QA · SOURCE TRACE · SESSION RESTORE')).toBeVisible()
   expect(screen.queryByText('REAL DEEPSEEK FULL-STACK / VERIFIED')).not.toBeInTheDocument()
+  expect(screen.getByText('面向房地产销售经营数据的可信 AI 分析应用。')).toBeVisible()
+  expect(screen.queryByText('面向在线学习运营数据的可信 AI 分析应用。')).not.toBeInTheDocument()
   expect(screen.getByRole('img', { name: '析数 工作台首页' })).toBeInTheDocument()
   expect(screen.getByRole('img', { name: 'KnowledgeFlow AI 工作台首页' })).toBeInTheDocument()
-  expect(screen.getByRole('img', { name: 'ProductStudio 工作台首页' })).toBeInTheDocument()
+  expect(screen.getByRole('img', { name: 'ProductStudio 工作台首页' })).toHaveAttribute(
+    'src',
+    '/images/productstudio/05_neutral_workspace.png',
+  )
   expect(screen.getByText('Fidelity QA + Manual Confirmation')).toBeVisible()
   expect(screen.queryByText(/Human QA|Human Approved/)).not.toBeInTheDocument()
 

@@ -41,7 +41,7 @@ export const xishuProject: ProjectRecord = {
   version: 'v2.0.0',
   status: 'RELEASED',
   statusTone: 'verified',
-  summary: '面向在线学习运营数据的可信 AI 分析应用。',
+  summary: '面向房地产销售经营数据的可信 AI 分析应用。',
   problem: '自由生成容易出现字段误判和业务数字幻觉。',
   solution: '模型只识别高层意图，程序负责工作流编译、计算和证据校验。',
   capabilities: [
@@ -98,7 +98,7 @@ export const productStudioProject: ProjectRecord = {
   ],
   metrics: ['REAL CUI / QWEN RESULT', 'Fidelity QA + Manual Confirmation', 'HISTORY / RECOVERY', 'v0.2.0 Job Demo'],
   route: '/projects/productstudio',
-  imagePath: '/images/productstudio/01_workbench_overview.png',
+  imagePath: '/images/productstudio/05_neutral_workspace.png',
   flow: ['TRUTH', 'DIRECTION', 'ADOPTION', 'GENERATION', 'QA', 'RECOVERY'],
 }
 
