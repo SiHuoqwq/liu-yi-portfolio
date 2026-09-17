@@ -17,6 +17,8 @@ export const assetManifest = {
   xishuHistory: { path: '/images/xishu/session-history.webp', available: true, requiredForRelease: false, width: 1200, height: 464 },
   xishuRecovery: { path: '/images/xishu/session-recovery.webp', available: true, requiredForRelease: true, width: 940, height: 1150 },
   xishuBoundary: { path: '/images/xishu/boundary-refusal.webp', available: true, requiredForRelease: true, width: 1600, height: 900 },
+  xishuRealEstateOverview: { path: '/images/xishu/01_real_estate_overview.png', available: true, requiredForRelease: true, width: 1440, height: 1100 },
+  xishuRealEstateAnalysis: { path: '/images/xishu/02_real_estate_analysis.png', available: true, requiredForRelease: true, width: 1440, height: 1100 },
   knowledgeflowHero: { path: '/images/knowledgeflow/hero-workbench.webp', available: true, requiredForRelease: true, width: 1600, height: 760 },
   knowledgeflowEmpty: { path: '/images/knowledgeflow/upload-empty.webp', available: true, requiredForRelease: true, width: 1600, height: 1000 },
   knowledgeflowDocuments: { path: '/images/knowledgeflow/document-list.webp', available: true, requiredForRelease: true, width: 1600, height: 1000 },

@@ -52,7 +52,7 @@ export const xishuProject: ProjectRecord = {
   metrics: ['183 / 183 Backend Tests', '59 / 59 Frontend Tests', '4 Artifact Types', 'v2.0.0 Released'],
   route: '/projects/xishu',
   github: 'https://github.com/SiHuoqwq/ai-data-analyst',
-  imagePath: '/images/xishu/hero-workbench.webp',
+  imagePath: '/images/xishu/01_real_estate_overview.png',
 }
 
 export const knowledgeFlowProject: ProjectRecord = {

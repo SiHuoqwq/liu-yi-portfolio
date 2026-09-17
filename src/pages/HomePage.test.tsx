@@ -28,7 +28,10 @@ it('presents the approved home narrative and truthful project evidence in order'
   expect(screen.queryByText('REAL DEEPSEEK FULL-STACK / VERIFIED')).not.toBeInTheDocument()
   expect(screen.getByText('面向房地产销售经营数据的可信 AI 分析应用。')).toBeVisible()
   expect(screen.queryByText('面向在线学习运营数据的可信 AI 分析应用。')).not.toBeInTheDocument()
-  expect(screen.getByRole('img', { name: '析数 工作台首页' })).toBeInTheDocument()
+  expect(screen.getByRole('img', { name: '析数 工作台首页' })).toHaveAttribute(
+    'src',
+    '/images/xishu/01_real_estate_overview.png',
+  )
   expect(screen.getByRole('img', { name: 'KnowledgeFlow AI 工作台首页' })).toBeInTheDocument()
   expect(screen.getByRole('img', { name: 'ProductStudio 工作台首页' })).toHaveAttribute(
     'src',

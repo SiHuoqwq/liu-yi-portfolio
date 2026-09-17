@@ -23,15 +23,13 @@ it('keeps Xishu release evidence and unfinished claims in their semantic states'
 
   expect(screen.getByText(/DeepSeek 真实模型模式/)).toBeVisible()
   expect(screen.queryByText(/Fake Provider 确定性演示模式/)).not.toBeInTheDocument()
-  for (const alt of [
-    '析数合成演示数据的数据集画像',
-    '析数课程类别分析结果',
-    '析数结构化表格与图表 Artifact',
-    '析数已完成运行的执行详情',
-    '析数教师维度数据条件不足说明',
+  for (const [alt, path] of [
+    ['析数房地产销售 Demo 数据集画像', '/images/xishu/01_real_estate_overview.png'],
+    ['析数房地产经营分析结果', '/images/xishu/02_real_estate_analysis.png'],
   ]) {
-    expect(screen.getByRole('img', { name: alt })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: alt })).toHaveAttribute('src', path)
   }
+  expect(screen.queryByRole('img', { name: /课程|教师|在线学习/ })).not.toBeInTheDocument()
 
   const implemented = screen.getByRole('region', { name: '析数已实现能力' })
   for (const unsupported of ['OpenAI Provider', 'Redis', 'P95', '云部署']) {

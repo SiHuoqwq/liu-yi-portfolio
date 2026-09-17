@@ -22,12 +22,8 @@ it('publishes the social share image with its intrinsic dimensions', () => {
 
 it('publishes the selected Xishu evidence assets with their intrinsic dimensions', () => {
   const expected = [
-    ['xishuHero', '/images/xishu/hero-workbench.webp', 1600, 760],
-    ['xishuDataset', '/images/xishu/dataset-profile.webp', 1600, 980],
-    ['xishuAnalysis', '/images/xishu/analysis-result.webp', 1600, 560],
-    ['xishuArtifact', '/images/xishu/artifact-overview.webp', 1600, 1590],
-    ['xishuRun', '/images/xishu/run-details.webp', 1600, 1000],
-    ['xishuBoundary', '/images/xishu/boundary-refusal.webp', 1600, 900],
+    ['xishuRealEstateOverview', '/images/xishu/01_real_estate_overview.png', 1440, 1100],
+    ['xishuRealEstateAnalysis', '/images/xishu/02_real_estate_analysis.png', 1440, 1100],
   ] as const
 
   for (const [key, path, width, height] of expected) {
