@@ -24,7 +24,7 @@ export function ProductStudioPage() {
       </CaseSection>
 
       <CaseSection index="03 / 09" title="核心架构" ariaLabel="ProductStudio 核心架构" tone="elevated">
-        <p>系统把事实、受控决策、执行、质量门禁与恢复拆成独立职责；每一层只向下一层交付明确状态。</p>
+        <p>主流程从 Product Truth 进入受控规划、生成执行与质量确认；History / Recovery 负责保存并恢复关键工作状态。</p>
         <ProductStudioArchitectureDiagram />
       </CaseSection>
 

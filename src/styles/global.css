@@ -1075,6 +1075,201 @@ img {
   line-height: 1.65;
 }
 
+.productstudio-architecture__diagram {
+  display: grid;
+  margin: 2rem 0 0;
+}
+
+.productstudio-architecture__flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.productstudio-architecture__stage {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+  min-width: 0;
+  min-height: 16rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-primary);
+}
+
+.productstudio-architecture__stage:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  z-index: 1;
+  top: 2.6rem;
+  right: -0.82rem;
+  color: var(--color-accent-blue);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: var(--text-sm);
+}
+
+.productstudio-architecture__stage-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: baseline;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.productstudio-architecture__stage-index,
+.productstudio-architecture__stage-category {
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+}
+
+.productstudio-architecture__stage-index {
+  color: var(--color-accent-blue);
+}
+
+.productstudio-architecture__stage-category {
+  color: var(--color-text-muted);
+}
+
+.productstudio-architecture__stage h3 {
+  margin: 1rem 0 0;
+  font-size: var(--text-lg);
+  line-height: 1.3;
+}
+
+.productstudio-architecture__stage-items {
+  display: grid;
+  align-content: end;
+  gap: 0.55rem;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  list-style: none;
+}
+
+.productstudio-architecture__stage-items li {
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.productstudio-architecture__stage-items li::before {
+  content: "↳";
+  margin-right: 0.45rem;
+  color: var(--color-accent-blue);
+}
+
+.productstudio-architecture__stage--quality {
+  grid-template-rows: auto auto auto 1fr;
+  border-color: var(--color-warning);
+  background: linear-gradient(180deg, rgb(217 179 108 / 10%), transparent 62%), var(--color-bg-primary);
+}
+
+.productstudio-architecture__stage--quality .productstudio-architecture__stage-index,
+.productstudio-architecture__stage--quality .productstudio-architecture__stage-category,
+.productstudio-architecture__stage--quality .productstudio-architecture__stage-items li::before {
+  color: var(--color-warning);
+}
+
+.productstudio-architecture__quality-boundary {
+  align-self: end;
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgb(217 179 108 / 36%);
+  color: var(--color-warning);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+}
+
+.productstudio-architecture__quality-boundary strong {
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.productstudio-architecture__connection {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  margin: 0.8rem 0;
+}
+
+.productstudio-architecture__connection::before,
+.productstudio-architecture__connection::after {
+  content: "";
+  border-top: 1px dashed var(--color-border-strong);
+}
+
+.productstudio-architecture__connection span {
+  color: var(--color-text-muted);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+}
+
+.productstudio-architecture__state {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.9fr) minmax(0, 2.1fr);
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+}
+
+.productstudio-architecture__state-header {
+  padding-right: 1.5rem;
+  border-right: 1px solid var(--color-border);
+}
+
+.productstudio-architecture__state-eyebrow {
+  color: var(--color-verified);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+}
+
+.productstudio-architecture__state h3 {
+  margin: 0.35rem 0 0;
+  font-size: var(--text-base);
+  line-height: 1.35;
+}
+
+.productstudio-architecture__state-header p {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+}
+
+.productstudio-architecture__state-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.productstudio-architecture__state-items li {
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
 .decision-comparison,
 .limitation-groups {
   display: grid;
@@ -1429,6 +1624,9 @@ img {
   .case-section { padding-block: 4.5rem; }
   .case-section__grid { gap: 2.5rem; }
   .case-section__grid > header { position: static; }
+  .productstudio-architecture__diagram { margin-top: 1.5rem; }
+  .productstudio-architecture__stage { padding: 1rem; }
+  .productstudio-architecture__state { padding: 1rem; }
   .architecture-comparison > div { grid-template-columns: 1fr; }
   .architecture-comparison__stack { min-height: auto; }
   .architecture-arrow { grid-auto-flow: column; align-items: center; justify-self: center; }
@@ -1477,6 +1675,59 @@ img {
 @media (min-width: 768px) and (max-width: 1279px) {
   .container {
     width: min(100% - (2 * var(--page-padding-tablet)), var(--container-max));
+  }
+}
+
+@media (max-width: 1279px) {
+  .productstudio-architecture__flow {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .productstudio-architecture__stage {
+    min-height: auto;
+  }
+
+  .productstudio-architecture__stage:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    right: 50%;
+    bottom: -1.5rem;
+    translate: 50% 0;
+  }
+
+  .productstudio-architecture__stage-items {
+    align-content: start;
+    margin-top: 1rem;
+  }
+
+  .productstudio-architecture__connection {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.35rem;
+    margin: 0.7rem 0;
+  }
+
+  .productstudio-architecture__connection::before {
+    height: 1.2rem;
+    border-top: 0;
+    border-left: 1px dashed var(--color-border-strong);
+  }
+
+  .productstudio-architecture__connection::after {
+    display: none;
+  }
+
+  .productstudio-architecture__state {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .productstudio-architecture__state-header {
+    padding: 0 0 0.85rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
   }
 }
 

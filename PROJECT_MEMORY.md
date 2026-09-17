@@ -12,7 +12,7 @@
 - 仓库用途：个人作品集网站。
 - 当前阶段：作品集网站与 AI 应用开发简历均已完成，现已进入求职投递阶段；计划优先在 BOSS 直聘投递 AI 应用开发工程师 / AI Agent 开发工程师岗位。
 - 网站实现：首页与两条 Case Study 均已完成响应式结构、分级动效和真实产品 UI 素材接入；Evidence Trace 使用中文界面文案，全部真实项目图片支持可访问的点击放大，两条 Case Study 首屏提供“返回首页”；KnowledgeFlow 首页使用完成工作台主图，Case Study 依次展示空态、文档列表、SSE 流式生成、来源快照和刷新恢复。
-- ProductStudio Portfolio Phase 1 已在 `codex/productstudio-portfolio` 分支提交为 `578b448fee246b7f427fc9bd5dd47e60688261aa`：第三张首页项目卡、通用三项目动效栈、`/projects/productstudio` 路由及四张正式 PNG 素材已接入。Phase 2-A 九段 Case Study、Phase 2-A.5 QA 真实性修正与 Phase 2-B.1 专属 Hero 均已完成，并由 `feat: refine ProductStudio portfolio case study` checkpoint 固化；QA 口径为 `Fidelity QA + Manual Confirmation`，不宣称 Human QA Pipeline、Human Approved 或独立 Human QA 状态机；Hero 主图使用未选择具体商品的 `05_neutral_workspace.png`，未修改其他 Case Study。
+- ProductStudio Portfolio Phase 1 已在 `codex/productstudio-portfolio` 分支提交为 `578b448fee246b7f427fc9bd5dd47e60688261aa`：第三张首页项目卡、通用三项目动效栈、`/projects/productstudio` 路由及四张正式 PNG 素材已接入。Phase 2-A 九段 Case Study、Phase 2-A.5 QA 真实性修正与 Phase 2-B.1 专属 Hero 均已完成，并由 `feat: refine ProductStudio portfolio case study` checkpoint 固化；QA 口径为 `Fidelity QA + Manual Confirmation`，不宣称 Human QA Pipeline、Human Approved 或独立 Human QA 状态机；Hero 主图使用未选择具体商品的 `05_neutral_workspace.png`，未修改其他 Case Study。Phase 2-B.2 已通过人工视觉确认，并由 `feat: refine ProductStudio architecture presentation` checkpoint 固化：架构区改为四阶段主流程、独立 Quality Gate 与 History / Recovery State Rail。
 - 线上作品集部署在 `liu-yi-portfolio-iccbna3v.edgeone.cool`；2026-08-14 实测裸域名返回 HTTP 401，当前投递必须使用用户提供的完整 EdgeOne 签名链接并保留 `eo_token` / `eo_time` 查询参数。项目记忆不保存具体 token 值。
 - 正式简历：`D:\Codex\Projects\portfolio-implementation\public\resume\liu-yi-ai-application-resume.pdf`。
 - AI 简历 V2 Candidate 1 与 Candidate 2 均已有独立可编辑生成链，源码位于 `D:\Codex\Projects\resume-it-procurement-2026-08-19\src\`；Candidate 2 输出为 `D:\Codex\Outputs\resume-ai-v2-candidate-2\liu-yi-ai-application-resume-v2-candidate-2.pdf`。当前正式 V1 与 Candidate 1 均未替换、未覆盖、未部署。
@@ -66,7 +66,7 @@
 - 面试双页速查图已完成，位于 `D:\Codex\Outputs\interview-prep-2026-08-18\cheat-sheets\`：第1页为“ERP与智能排柜”，第2页为“自我介绍与面试问答”，每页均交付 1800×2546 PNG 与可缩放 SVG。内容合并了用户截图和已确认面试材料，并补充 ERP 定义、七步记忆法、现场查看提纲话术及诚信边界；已完成 XML、关键文案、无外部依赖、PNG 尺寸和视觉检查，第2页深色卡片对比度问题已修复。
 - Lighthouse 已按用户授权以 `13.4.1` 本地 devDependency 安装并完成 3 个 URL 的 Desktop / Mobile 各 3 次 production preview 审计；原始结果与中位数位于 `docs/verification/portfolio.md`。
 - Visual Refinement Round 2 已修复 Hero 与 Selected Work 中文断行，并提高析数、KnowledgeFlow 中段的真实信息密度；下一步仅在用户提供真实资产后进入 Asset Integration，当前不得 merge、push 或部署。
-- ProductStudio Phase 2-A、2-A.5 与 2-B.1 已完成 checkpoint；当前不得 push、merge，也不自行开始 Phase 2-B.2。下一步等待用户指示。
+- ProductStudio Phase 2-B.2 Architecture Diagram 已完成 checkpoint；不得自行 push、merge 或开始后续阶段，下一步等待用户指示。
 
 ## 最近验证
 
@@ -96,6 +96,7 @@
 - 2026-09-16 ProductStudio Portfolio Phase 2-A.5：首页与详情页统一使用 `Fidelity QA + Manual Confirmation`，生成边界为 `Generation Completed ≠ Product Fidelity Confirmed`；typecheck、完整 Vitest 34/34 与 production build 通过，生产源码不存在 Human QA / Human Approved 声明。
 - 2026-09-16 ProductStudio Portfolio Phase 2-B.1：ProductStudio 专属 Hero 在 1440×900 下完整显示标题、定位、价值句、四项技术关键词和 CTA，工作台主图从 y=567 开始，首屏可见 333px（图片高度 44.5%）；390×844 与 320×800 均无横向溢出且主图可解码。typecheck、完整 Vitest 34/34 与 production build 均通过。
 - 2026-09-16 ProductStudio Hero 中性素材接入：`05_neutral_workspace.png` 为可解码 1440×900 PNG，SHA-256 `EBA3D34078BC57FB43706F6A7B17CA4524E7445FD022D946E6CC54928341C41A`；Hero 引用已切换，01–04 原图保持不变。1440×900 下主图首屏露出 333px，渲染与原图宽高比均为 1.6；390×844 无横向溢出，标签与 CTA 均可见。
+- 2026-09-16 ProductStudio Phase 2-B.2：专属 Architecture Diagram 在 1440×900 下为四个约 188px 等宽阶段卡，Quality Gate 使用独立 warning 语义，History / Recovery 以 State Rail 表达保存与恢复；390×844 下为 350px 单列顺序，无横向溢出。typecheck、完整 Vitest 34/34、production build 与 `git diff --check` 通过。
 
 ## 变更记录
 
@@ -127,3 +128,5 @@
 - 2026-09-16：完成 ProductStudio Phase 2-B.1 Hero 优化；新增 ProductStudio 专属首屏组件与作用域样式，保留项目事实、版本和非规模化生产系统边界，未修改通用 `CaseStudyHero`、其他项目页面、图片或公共交互，未 commit、push 或 merge。
 - 2026-09-16：为 Phase 2-B.1 接入中性工作台证据图，仅新增资源、manifest 条目并替换 Hero 图片引用；未修改 Hero 文案、结构、技术标签、CTA、CSS 或响应式布局，未删除或覆盖 01–04 PNG。
 - 2026-09-16：按用户授权创建 Phase 2-A + 2-A.5 + 2-B.1 checkpoint `feat: refine ProductStudio portfolio case study`；提交前 typecheck、完整 Vitest 34/34、production build 与 `git diff --check` 通过，未 push、merge 或开始 Phase 2-B.2。
+- 2026-09-16：按已批准的方案 A 实现 ProductStudio Phase 2-B.2；未修改通用 `ProcessTrace`、Hero、首页或其他 Case Study。
+- 2026-09-17：ProductStudio Phase 2-B.2 通过人工视觉确认，并由 `feat: refine ProductStudio architecture presentation` checkpoint 固化；未 push、merge 或开始后续阶段。

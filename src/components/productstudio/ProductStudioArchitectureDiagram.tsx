@@ -1,13 +1,80 @@
-import { ProcessTrace } from '../case-study/ProcessTrace'
-
 const architectureStages = [
-  { label: 'Product Truth', detail: '保存商品身份、已确认事实、unknown 与参考依据，创意描述不能反向改写事实。' },
-  { label: 'Controlled AI Workflow', detail: 'Deterministic Creative Director Provider 提出结构化候选；用户明确采用后，Generation Strategy 才进入执行链路。' },
-  { label: 'Generation', detail: 'CUI（ComfyUI）执行 Qwen Image Edit；BiRefNet 提供商品保真与回退路径。' },
-  { label: 'Fidelity QA', detail: '检查商品外形、颜色、结构、标识与类目关键特征，并记录质量验证状态。' },
-  { label: 'History / Recovery', detail: '保存 Job、输出、QA 状态与必要来源，支持刷新或后端重启后的任务恢复。' },
+  {
+    index: '01',
+    category: 'INPUT / TRUTH',
+    title: 'Product Truth',
+    items: ['Current Product Context', 'Verified Constraints'],
+  },
+  {
+    index: '02',
+    category: 'PLANNING / CONTROL',
+    title: 'Controlled AI Workflow',
+    items: ['Deterministic Provider', 'Explicit Adoption'],
+  },
+  {
+    index: '03',
+    category: 'EXECUTION',
+    title: 'Generation Strategy',
+    items: ['Generation Job', 'CUI / Qwen Image Edit'],
+  },
+] as const
+
+const persistedState = [
+  'Product Context',
+  'Adopted Strategy',
+  'Generation Job',
+  'Result',
+  'Confirmation State',
 ] as const
 
 export function ProductStudioArchitectureDiagram() {
-  return <ProcessTrace steps={architectureStages} />
+  return (
+    <figure className="productstudio-architecture__diagram" aria-label="ProductStudio 受控生成架构">
+      <ol className="productstudio-architecture__flow">
+        {architectureStages.map((stage) => (
+          <li className="productstudio-architecture__stage" key={stage.index}>
+            <div className="productstudio-architecture__stage-header">
+              <span className="mono productstudio-architecture__stage-index">{stage.index}</span>
+              <span className="mono productstudio-architecture__stage-category">{stage.category}</span>
+            </div>
+            <h3>{stage.title}</h3>
+            <ul className="productstudio-architecture__stage-items">
+              {stage.items.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </li>
+        ))}
+
+        <li className="productstudio-architecture__stage productstudio-architecture__stage--quality">
+          <div className="productstudio-architecture__stage-header">
+            <span className="mono productstudio-architecture__stage-index">04</span>
+            <span className="mono productstudio-architecture__stage-category">QUALITY GATE</span>
+          </div>
+          <h3>Fidelity QA</h3>
+          <ul className="productstudio-architecture__stage-items">
+            <li>Manual Confirmation</li>
+          </ul>
+          <div className="productstudio-architecture__quality-boundary">
+            <span>GENERATION COMPLETED</span>
+            <strong aria-label="不等于">≠</strong>
+            <span>PRODUCT FIDELITY CONFIRMED</span>
+          </div>
+        </li>
+      </ol>
+
+      <div className="productstudio-architecture__connection">
+        <span className="mono">SAVE / RESTORE</span>
+      </div>
+
+      <section className="productstudio-architecture__state" aria-labelledby="productstudio-state-title">
+        <header className="productstudio-architecture__state-header">
+          <span className="mono productstudio-architecture__state-eyebrow">STATE RAIL</span>
+          <h3 id="productstudio-state-title">HISTORY / RECOVERY</h3>
+          <p className="mono">STATE PERSISTENCE</p>
+        </header>
+        <ul className="productstudio-architecture__state-items">
+          {persistedState.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      </section>
+    </figure>
+  )
 }

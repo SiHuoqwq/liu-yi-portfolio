@@ -47,8 +47,25 @@ it('presents the nine-part ProductStudio evidence narrative with scoped roadmap 
   }
 
   const architecture = screen.getByRole('region', { name: 'ProductStudio 核心架构' })
-  for (const stage of ['Product Truth', 'Controlled AI Workflow', 'Generation', 'Fidelity QA', 'History / Recovery']) {
-    expect(within(architecture).getByText(stage)).toBeVisible()
+  for (const label of [
+    'INPUT / TRUTH',
+    'PLANNING / CONTROL',
+    'EXECUTION',
+    'QUALITY GATE',
+    'Product Truth',
+    'Explicit Adoption',
+    'Generation Job',
+    'Fidelity QA',
+    'Manual Confirmation',
+    'GENERATION COMPLETED',
+    'PRODUCT FIDELITY CONFIRMED',
+    'HISTORY / RECOVERY',
+    'STATE PERSISTENCE',
+    'SAVE / RESTORE',
+  ]) {
+    for (const match of within(architecture).getAllByText(label)) {
+      expect(match).toBeVisible()
+    }
   }
 
   const creative = screen.getByRole('region', { name: 'ProductStudio Creative Director' })
