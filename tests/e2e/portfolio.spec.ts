@@ -50,16 +50,20 @@ test('enlarges real project images and restores focus after Escape', async ({ pa
   await expect(page.locator('body')).not.toHaveAttribute('data-image-viewer-open')
 })
 
-test('keeps GitHub external and reports the missing resume without a broken link', async ({ page }) => {
+test('keeps GitHub external and publishes the approved resume', async ({ page }) => {
   await page.goto('/')
   const github = page.getByRole('link', { name: 'GitHub' }).first()
   await expect(github).toHaveAttribute('href', 'https://github.com/SiHuoqwq')
   await expect(github).toHaveAttribute('target', '_blank')
   await expect(github).toHaveAttribute('rel', 'noreferrer')
 
-  const resume = page.getByText('下载简历', { exact: true }).first()
-  await expect(resume).toHaveAttribute('aria-disabled', 'true')
-  await expect(resume).not.toHaveAttribute('href')
+  const resumePath = '/resume/liu-yi-ai-application-resume.pdf'
+  const resume = page.getByRole('link', { name: '下载简历' }).first()
+  await expect(resume).toHaveAttribute('href', resumePath)
+
+  const response = await page.request.get(resumePath)
+  expect(response.ok()).toBe(true)
+  expect(response.headers()['content-type']).toContain('application/pdf')
 })
 
 test('mobile menu traps the interaction and restores focus after Escape', async ({ page }) => {

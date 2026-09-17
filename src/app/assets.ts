@@ -7,7 +7,7 @@ export type AssetRecord = {
 }
 
 export const assetManifest = {
-  resume: { path: '/resume/liu-yi-ai-application-resume.pdf', available: false, requiredForRelease: true },
+  resume: { path: '/resume/liu-yi-ai-application-resume.pdf', available: true, requiredForRelease: true },
   profile: { path: '/images/profile/liu-yi.webp', available: false, requiredForRelease: false },
   xishuHero: { path: '/images/xishu/hero-workbench.webp', available: true, requiredForRelease: true, width: 1600, height: 760 },
   xishuDataset: { path: '/images/xishu/dataset-profile.webp', available: true, requiredForRelease: true, width: 1600, height: 980 },

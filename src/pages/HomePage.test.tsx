@@ -38,4 +38,12 @@ it('presents the approved home narrative and truthful project evidence in order'
   expect(screen.getByText(/LangChain · LangGraph · Tool Calling · DeepSeek API/)).toBeVisible()
   expect(screen.getByText(/React · TypeScript · Vite · TanStack Query/)).toBeVisible()
   expect(screen.queryByRole('heading', { name: 'AI APPLICATION SYSTEMS' })).not.toBeInTheDocument()
+
+  for (const resume of screen.getAllByRole('link', { name: '下载简历' })) {
+    expect(resume).toHaveAttribute('href', '/resume/liu-yi-ai-application-resume.pdf')
+  }
+  expect(screen.getByRole('link', { name: 'Resume' })).toHaveAttribute(
+    'href',
+    '/resume/liu-yi-ai-application-resume.pdf',
+  )
 })

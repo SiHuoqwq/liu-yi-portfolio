@@ -1,5 +1,14 @@
 import { assetManifest, getAssetAvailability } from './assets'
 
+it('publishes the approved resume at its stable public path', () => {
+  expect(assetManifest.resume).toMatchObject({
+    path: '/resume/liu-yi-ai-application-resume.pdf',
+    available: true,
+    requiredForRelease: true,
+  })
+  expect(getAssetAvailability('/resume/liu-yi-ai-application-resume.pdf')).toBe(true)
+})
+
 it('publishes the selected Xishu evidence assets with their intrinsic dimensions', () => {
   const expected = [
     ['xishuHero', '/images/xishu/hero-workbench.webp', 1600, 760],
